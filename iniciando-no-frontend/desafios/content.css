@@ -1,0 +1,113 @@
+body {
+  background: url('https://skylab.rocketseat.com.br/static/media/MountainsOpacity.a4edba24.png') 0% 0% / cover fixed, rgb(11, 10, 13);
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+  padding: 30px;
+  margin: 50px auto 105px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.card {
+  width: 100%;
+  border-radius: 30px;
+  padding: 30px;
+
+  position: relative;
+  background: #2e2f357c;
+}
+
+.card_image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 0%;
+}
+
+.card_image-container div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.card_image-container span {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.starter-span, #starter {
+  border: 3px solid var(--rocket-color);
+}
+.launch-span, #launch {
+  border: 3px solid var(--launch-color);
+}
+.gostack-span, #gostack{
+  border: 3px solid var(--gostack-color);
+}
+
+.card .starter-span,
+.card strong.starter {
+  color: var(--rocket-color);
+}
+.card .launch-span,
+.card strong.launch {
+  color: var(--launch-color);
+}
+.card .gostack-span,
+.card strong.gostack {
+  color: var(--gostack-color);
+}
+
+.card_image-container img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 148px;
+  margin: 105px 0 55px;
+}
+
+.card_content {
+  max-width: 270px;
+  text-align: center;
+}
+.card_content p {
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.card_info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  margin-top: 50px;
+}
+
+.card_info .card_price {
+  padding: 5px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+#starter_price {
+  background: var(--rocket-color);
+}
+#launch_price {
+  background: var(--launch-color);
+}
+#gostack_price {
+  background: var(--gostack-color);
+}

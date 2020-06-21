@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+:root {
+  --rocket-color: #7159c1;
+  --launch-color: #fd951f;
+  --gostack-color:#04d361;
+}
+
+* {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url('https://skylab.rocketseat.com.br/static/media/MountainsOpacity.a4edba24.png') 0% 0% / cover fixed, rgb(11, 10, 13);
+  font-family: Roboto, sans-serif;
+  color: white;
+}
+
+header {
+  padding: 30px;
+  border-bottom: 1px solid rgb(100, 97, 97);
+}
+
+.links {
+  text-align: center;
+}
+
+.links a {
+  font-size: 18px;
+  line-height: 28px;
+  color: white;
+  text-decoration: none;
+  padding-right: 30px;
+}
+.links a:hover {
+  color: var(--rocket-color);
+  transition: 500ms;
+}
+
+#links-footer {
+  margin-bottom: 8px;
+}
+#links-footer a {
+  border-bottom: 1px solid var(--rocket-color);
+  padding: 0;
+  margin:  18px;
+}

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 :root {
   --color-green: #50fa7b;
@@ -52,8 +53,8 @@ header {
 }
 
 #wrapper h1 {
-  font-size: 42px;
-  line-height: 52px;
+  font-size: 35px;
+  line-height: 45px;
   font-weight: bold;
 }
 
@@ -94,6 +95,7 @@ header {
 .card {
   background: var(--rocket-color);
   border-radius: 30px;
+  cursor: pointer;
 }
 
 .card_image-container img{
@@ -118,4 +120,49 @@ header {
   padding: 5px 20px;
   border-radius: 20px;
   text-align: center;
+}
+
+
+/* === MODAL === */
+
+
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  opacity: 0; /* esconde o modal-overlay */
+  visibility: hidden; /* esconde o modal-overlay */
+}
+
+.modal {
+  background: white;
+  width: 90%;
+  height: 90%;
+  margin: 5vh auto; 
+  position: relative;
+}
+
+.modal .close-modal {
+  color: black;
+  position: absolute; /* o absolute respeita a posição relative do modal */
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+}
+
+/* === MODAL.ACTIVE === */
+
+.modal-overlay.active {
+  opacity: 1; /* retorna o modal-overlay */
+  visibility: visible; /* retorna o modal-overlay */
+}
+
+
+iframe {
+  width: 100%;
+  height: 90%;
+  position: absolute;
+  top: 5%;
 }
