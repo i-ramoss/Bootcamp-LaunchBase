@@ -51,7 +51,7 @@ body {
 .starter-span, #starter {
   border: 3px solid var(--rocket-color);
 }
-.launch-span, #launch {
+.launch-span, #launchbase {
   border: 3px solid var(--launch-color);
 }
 .gostack-span, #gostack{
@@ -78,6 +78,8 @@ body {
 
   height: 148px;
   margin: 105px 0 55px;
+
+  cursor: pointer;
 }
 
 .card_content {
@@ -96,6 +98,10 @@ body {
   margin-top: 50px;
 }
 
+.card_price {
+  cursor: pointer;
+}
+
 .card_info .card_price {
   padding: 5px;
   border-radius: 20px;
@@ -105,9 +111,74 @@ body {
 #starter_price {
   background: var(--rocket-color);
 }
-#launch_price {
+#launchbase_price {
   background: var(--launch-color);
 }
 #gostack_price {
   background: var(--gostack-color);
+}
+
+/* === MODAL == */
+
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal {
+  background: white;
+  width: 90%;
+  height: 90%;
+  margin: 5vh auto;
+  position: relative;
+}
+
+.modal .close-modal {
+  color: black;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  cursor: pointer;
+}
+
+.modal .maximize-modal {
+  color: black;
+  position: absolute;
+  top: 8px;
+  right: 50px;
+
+  cursor: pointer;
+}
+
+.modal img {
+  height: 25px;
+}
+
+/* === MODAL ACTIVE == */
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+iframe {
+  width: 100%;
+  height: 90%;
+  position: absolute;
+  top: 5%;
+}
+
+/* === MAXIMIZE == */
+
+.modal.maximize {
+  width: 100%;
+  height: 100%;
+  margin: auto;
 }

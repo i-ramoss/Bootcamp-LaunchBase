@@ -7,7 +7,7 @@
 
     <title>Rocketseat</title>
 
-    <link rel="icon" href="https://raw.githubusercontent.com/Rocketseat/bootcamp-launchbase-desafios-02/master/desafios/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon"/>
 
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="content.css">
@@ -16,14 +16,19 @@
 
   <body>
     
-    <header>
-      <div class="links">
-        <a href="https://discordapp.com/invite/gCRAFhc" target="_blanck">Comunidade</a>
-        <a href="mailto:oi@rocketseat.com.br">Email</a>
-        <a href="tel:+5547992078767">Telefone</a>
-        <a href="index.html">Sobre</a>
-        <a href="content.html">Conteúdos</a>
-      </div>
+    <header class="header">
+      <ul class="links">
+        <li><a href="./">Sobre</a></li>
+        <li><a href="content.html">Conteúdos</a></li>
+      </ul>
+
+      <nav>
+        <ul class="links">
+          <li><a href="https://discordapp.com/invite/gCRAFhc" target="_blanck"><img src="./assets/discord-seeklogo.com.svg" alt=Discord_Rocketseat></a></li>
+          <li><a href="mailto:oi@rocketseat.com.br"><img src="./assets/email-white-18dp.svg" alt="Email"></a></li>
+          <li><a href="tel:+5547992078767"><img src="./assets/call-white-18dp.svg" alt="Phone"></a></li>
+        </ul>
+      </nav>
     </header>
 
     <div class="content">
@@ -47,7 +52,7 @@
           </div>
         </div>
         
-        <div class="card" id="launch">
+        <div class="card" id="launchbase">
           <div class="card_image-container">
             <div class="launch-span">
               <span>02</span>
@@ -85,6 +90,18 @@
   
       </section>
     </div>
+
+    <div class="modal-overlay">
+      <div class="modal">
+        <a class="close-modal"><img src="./assets/close-black-18dp.svg" alt="Close"></a>
+        <a class="maximize-modal"><img src="./assets/aspect_ratio-black-18dp.svg" alt="Maximize"></a>
+
+       <div class="modal-content">
+         <iframe src="" frameborder="0"></iframe>
+       </div>
+
+      </div>
+    </div>
     
 
     <div id ="links-footer" class="links">
@@ -93,6 +110,8 @@
       <a href="https://web.facebook.com/rocketseat">Facebook</a>
       <a href="https://www.youtube.com/rocketseat">YouTube</a>
     </div>
+
+    <script src="scripts.js"></script>
     
   </body>
 

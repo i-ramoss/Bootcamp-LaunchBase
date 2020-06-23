@@ -12,6 +12,11 @@
   border: 0;
   margin: 0;
   box-sizing: border-box;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 body {
@@ -20,32 +25,55 @@ body {
   color: white;
 }
 
-header {
+.header {
   padding: 30px;
   border-bottom: 1px solid rgb(100, 97, 97);
+  max-width: 1900px;
+  margin: 0 auto; 
+
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .links {
-  text-align: center;
+  display: flex;
+  align-items: center;
 }
 
-.links a {
+.links li {
+  margin-right: 30px;
+}
+
+.links li a {
+  display: block;
+
+  padding: 10px;
   font-size: 18px;
   line-height: 28px;
   color: white;
-  text-decoration: none;
-  padding-right: 30px;
 }
+
+.links li a img {
+  height: 30px;
+  width: 30px;
+}
+
 .links a:hover {
   color: var(--rocket-color);
   transition: 500ms;
 }
 
 #links-footer {
-  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
 }
+
 #links-footer a {
   border-bottom: 1px solid var(--rocket-color);
-  padding: 0;
+  padding: 10px;
   margin:  18px;
+  font-size: 18px;
+  color: white;
 }
