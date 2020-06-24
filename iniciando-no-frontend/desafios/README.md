@@ -2,7 +2,7 @@
     <img alt="Launchbase" src="https://storage.googleapis.com/golden-wind/bootcamp-launchbase/logo.png" width="400px" />
 </h1>
 
-<h2 align="center">Desafios Módulo 2 - Iniciando no Front-end</h2>
+<h2 align="center">Desafio 2-1: Primeiro HTML</h2>
 
 <p align="center">
 
@@ -13,10 +13,10 @@
 </p>
 
 <p align="center">
-  <a href="#desafio-1-1-primeiros-passos-com-js">2-1</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#desafio-1-2-lidando-com-objetos-e-vetores">2-2</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#desafio-1-3-funções-e-estruturas-de-repetição">2-3</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#desafio-1-4-aplicação-operações-bancárias">2-4</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#desafio-2-1-primeiro-html">2-1</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#desafio-2-2-página-de-descrição">2-2</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#desafio-2-3-página-de-cursos-e-iframe">2-3</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#desafio-construindo-foodfy">2-4</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#key-licença">Licença</a>
 </p>
 
