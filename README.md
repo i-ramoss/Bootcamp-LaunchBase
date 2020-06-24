@@ -17,10 +17,10 @@
 - [x] 4. Desafio 1.4 - Aplicação: Operações bancárias
 
 ## Módulo 2 - Introdução ao Front-End:
-- [ ] 1. Desafio 2.1 - Primeiro HTML
-- [ ] 2. Desafio 2.1 - Página de descrição
-- [ ] 3. Desafio 2.3 - Página de cursos e iframe
-- [ ] 4. Desafio 2.4 - Construindo o Foodfy
+- [x] 1. Desafio 2.1 - Primeiro HTML
+- [x] 2. Desafio 2.1 - Página de descrição
+- [x] 3. Desafio 2.3 - Página de cursos e iframe
+- [x] 4. Desafio 2.4 - Construindo o Foodfy
 
 ## Módulo 3 - Introdução ao Back-End:
 - [ ] 1. Desafio 3.1 - Primeiro servidor
