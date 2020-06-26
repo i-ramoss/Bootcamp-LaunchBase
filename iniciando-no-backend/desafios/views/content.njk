@@ -1,0 +1,85 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+
+{% block head %}
+  <title>Content - Rocketseat</title>
+
+  <link rel="stylesheet" href="content.css">
+{% endblock %}
+
+    <div class="content">
+      <section class="cards">
+
+        <div class="card" id="starter">
+          <div class="card_image-container">
+            <div class="starter-span">
+              <span>01</span>
+            </div>
+            <img src="https://skylab.rocketseat.com.br/static/media/Starter.64c237cc.svg" alt="Starter">
+          </div>
+          <div class="card_content">
+            <p>
+              <strong class="starter">Torne-se um programador desejado</strong> no mercado com esses cursos gratuitos
+            </p>
+          </div>
+          <div class="card_info">
+            <p>5 módulos</p>
+            <p class="card_price" id="starter_price">Gratuito</p>
+          </div>
+        </div>
+        
+        <div class="card" id="launchbase">
+          <div class="card_image-container">
+            <div class="launch-span">
+              <span>02</span>
+            </div>
+            <img src="https://skylab.rocketseat.com.br/static/media/LaunchBase.08285320.svg" alt="LaunchBase">
+          </div>
+          <div class="card_content">
+            <p>
+              <strong class="launch">Domine programação do zero</strong> e tenha acesso às melhores oportunidades do mercado
+            </p>
+          </div>
+          <div class="card_info">
+            <p>16 módulos</p>
+            <p class="card_price" id="launch_price">R$ 920,00</p>
+          </div>
+        </div>
+  
+        <div class="card" id="gostack">
+          <div class="card_image-container">
+            <div class="gostack-span">
+              <span>03</span>
+            </div>
+            <img src="https://skylab.rocketseat.com.br/static/media/GoStack.83a178a0.svg" alt="GoStack">
+          </div>
+          <div class="card_content">
+            <p>
+              <strong class="gostack">Treinamento imersivo</strong> nas tecnologias mais modernas de desenvolvimento web e mobile
+            </p>
+          </div>
+          <div class="card_info">
+            <p>13 módulos</p>
+            <p class="card_price" id="gostack_price">R$ 2500.00</p>
+          </div>
+        </div>
+  
+      </section>
+    </div>
+
+    <div class="modal-overlay">
+      <div class="modal">
+        <a class="close-modal"><img src="./assets/close-black-18dp.svg" alt="Close"></a>
+        <a class="maximize-modal"><img src="./assets/aspect_ratio-black-18dp.svg" alt="Maximize"></a>
+
+       <div class="modal-content">
+         <iframe src="" frameborder="0"></iframe>
+       </div>
+
+      </div>
+    </div>
+  
+    <script src="scripts.js"></script>
+
+{% endblock %}

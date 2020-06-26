@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {% block head %}
+    <title>Ian Ramos</title>
+  {% endblock %}    
+
+    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon"/>
+
+    <link rel="stylesheet" href="main.css">
+
+  </head>
+
+  <body>
+    
+    <header class="header">
+      <ul class="links">
+        <li><a href="/">Sobre</a></li>
+        <li><a href="/content">Conteúdos</a></li>
+      </ul>
+
+      <nav>
+        <ul class="links">
+          <li><a href="https://discordapp.com/invite/gCRAFhc" target="_blanck"><img src="./assets/discord-seeklogo.com.svg" alt=Discord_Rocketseat></a></li>
+          <li><a href="mailto:oi@rocketseat.com.br"><img src="./assets/email-white-18dp.svg" alt="Email"></a></li>
+          <li><a href="tel:+5547992078767"><img src="./assets/call-white-18dp.svg" alt="Phone"></a></li>
+        </ul>
+      </nav>
+    </header>
+
+  {% block content %}{% endblock %}
+      
+    <div id ="links-footer">
+      <ul class="links">
+        <li><a href="https://github.com/Rocketseat">GitHub</a></li>
+        <li><a href="https://www.instagram.com/rocketseat_oficial/">Instagram</a></li>
+        <li><a href="https://web.facebook.com/rocketseat">Facebook</a></li>
+        <li><a href="https://www.youtube.com/rocketseat">YouTube</a></li>
+      </ul>
+    </div>   
+
+  </body>
+
+</html>
