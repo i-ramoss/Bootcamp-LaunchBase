@@ -111,7 +111,7 @@ body {
 #starter_price {
   background: var(--rocket-color);
 }
-#launchbase_price {
+#launch_price {
   background: var(--launch-color);
 }
 #gostack_price {

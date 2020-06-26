@@ -23,14 +23,15 @@ body {
   background: url('https://skylab.rocketseat.com.br/static/media/MountainsOpacity.a4edba24.png') 0% 0% / cover fixed, rgb(11, 10, 13);
   font-family: Roboto, sans-serif;
   color: white;
+
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .header {
   padding: 30px;
   border-bottom: 1px solid rgb(100, 97, 97);
-  max-width: 1900px;
-  margin: 0 auto; 
-
 
   display: flex;
   justify-content: space-between;
@@ -68,6 +69,7 @@ body {
 #links-footer {
   display: flex;
   justify-content: center;
+  margin-top: auto;
 }
 
 #links-footer a {
