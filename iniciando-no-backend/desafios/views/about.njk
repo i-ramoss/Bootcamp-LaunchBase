@@ -3,22 +3,23 @@
 {% block content %}
 
 {% block head %}
-  <title>About - Rocketseat</title>
+  <title>About - {{about.name}}</title>
 
   <link rel="stylesheet" href="index.css">
 {% endblock %}
 
     <div id="package">
-      <img src="https://avatars1.githubusercontent.com/u/28929274?s=280&v=4" alt="Rocketseat"> 
-      <h1>Rocketseat</h1>
-      <h2>As melhores tecnologias em programação, direto ao ponto e do jeito certo.</h2>
-      <p>No meio de tanta informação e da quantidade de ferramentas que surgem todos os dias, você precisa de alguém que te leve na direção certa.</p>    
+      <img src="{{about.avatar_url}}" alt="{{about.name}}"> 
+      <h1>{{about.name}}</h1>
+      <h2>{{about.description}}</h2>
+      <p>{{about.rocket}}</p>    
       
       <ul>
-        Principais tecnologias utilizadas:
-        <li>Node.js</li>
-        <li>React</li>
-        <li>React Native</li>
+        {{about.tech}}
+
+      {% for tech in about.technologies%}
+        <li>{{tech}}</li>
+      {% endfor %}
       </ul>
     </div>
 

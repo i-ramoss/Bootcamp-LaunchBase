@@ -51,7 +51,7 @@ body {
 .starter-span, #starter {
   border: 3px solid var(--rocket-color);
 }
-.launch-span, #launchbase {
+.launchbase-span, #launchbase {
   border: 3px solid var(--launch-color);
 }
 .gostack-span, #gostack{
@@ -62,8 +62,8 @@ body {
 .card strong.starter {
   color: var(--rocket-color);
 }
-.card .launch-span,
-.card strong.launch {
+.card .launchbase-span,
+.card strong.launchbase {
   color: var(--launch-color);
 }
 .card .gostack-span,
@@ -111,7 +111,7 @@ body {
 #starter_price {
   background: var(--rocket-color);
 }
-#launch_price {
+#launchbase_price {
   background: var(--launch-color);
 }
 #gostack_price {
