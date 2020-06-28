@@ -19,8 +19,9 @@ server.set('view engine', 'njk')
 // configura a pasta que vai ser usada e a variável responsável pelo express além de renderizar as saídas pro html do jeito que são
 nunjucks.configure('views', {
   express:server,
-  autoescape:false
-})
+  autoescape:false,
+  noCache: true
+}) 
 
 // cria a rota '/' (rota principal)
 server.get('/', function(require, response) {
@@ -30,7 +31,11 @@ server.get('/', function(require, response) {
       avatar_url: 'https://avatars0.githubusercontent.com/u/45082049?s=460&u=bfd74e9c053f3fbad257bdddeca3260b3504d7e2&v=4',
       name: 'Ian Ramos',
       role: 'Estudante',
-      description: 'Entusiasta em programação e desenvolvedor júnior full stack em aprendizado pela <a href="https://rocketseat.com.br" target="_blanck">Rocketseat'
+      description: 'Entusiasta em programação e desenvolvedor júnior full stack em aprendizado pela <a href="https://rocketseat.com.br" target="_blanck">Rocketseat',
+      links: [ 
+        { name: 'GitHub', url: 'https://github.com/i-ramoss' },
+        { name: 'Linkedin', url: 'https://www.linkedin.com/in/ian-ramos/' }
+      ]
     }
   
   // retorna a renderização da rota about
@@ -44,7 +49,20 @@ server.get('/studies', function(require, response) {
   return response.render('studies', { items: videos })
 })
 
+server.get('/video', function(require, response) {
+  const id = require.query.id
+
+  const video = videos.find(function(video) {
+    return video.id == id
+  })
+  
+  if (!video) 
+    return response.send('Video not found!')
+
+  return response.render('video', { item: video })
+})
+
 // configura o servidor para ouvir na porta 3000
 server.listen(3000, () => {
   console.log('Server is runningn')
-})
+}) 

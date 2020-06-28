@@ -20,7 +20,7 @@ body {
 
 
 header {
-  padding: 32px;
+  padding: 30px;
   border-bottom: 1px solid #333;
   background: rgba(0, 0, 0, 0.1);
 }
@@ -89,7 +89,7 @@ header {
   gap: 30px;
 
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0 auto 30px;
 }
 
 .card {
@@ -168,4 +168,39 @@ iframe {
   height: 90%;
   position: absolute;
   top: 5%;
+}
+
+/* === FEATURED === */
+
+.featured-wrapper.card_image-container {
+  position: relative;
+}
+
+.featured {
+  position: absolute;
+  background-color: #ee7402;
+  color: black;
+  padding: 2px 8px;
+  left: 5px;
+  top: -10px;
+  border-radius: 16px;
+}
+
+/* === VIDEO PAGE ===  */
+
+.video {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.card_video-container {
+  position: relative;
+  padding-top: 62.5%;
+}
+
+.card_video-container iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
 }

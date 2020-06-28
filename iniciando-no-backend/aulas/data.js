@@ -3,19 +3,21 @@ module.exports = [
     id: "hN0zWNuZJC4",
     title: "Será que eu já tive uma ideia bilionária de aplicativo?",
     duration: "11 min",
-    price: "Free"
+    price: "Free",
+    featured: true
   },
   {
     id: "UftSB4DaRU4",
     title: "Manipulação de DOM com JavaScript, do zero, na prática | Masterclass #18",
     duration: "1:37:30 min",
-    price: "Free"
+    price: "Free",
   },
   {
     id: "x4FdZd2-_uU",
     title: "Recriando a Interface do Discord com ReactJS | UI Clone",
     duration: "2:22:50 min",
-    price: "Free"
+    price: "Free",
+    featured: true
   },
   {
     id: "GTMEuHxh8aQ",
@@ -27,7 +29,8 @@ module.exports = [
     id: "SrY8qV6UJ1M",
     title: "Deploy de apps ReactJS para Google Cloud Storage (part. Guilherme Pellizzetti) | Masterclass #17",
     duration: "48:34 min",
-    price: "Free"
+    price: "Free",
+    featured: true
   },
   {
     id: "zy-B9d2ZVrw",
