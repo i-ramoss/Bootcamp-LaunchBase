@@ -1,0 +1,42 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+
+{% block head %}
+  <title>{{item.title}}</title>
+
+  <link rel="stylesheet" href="/courses.css">
+  <link rel="stylesheet" href="/course.css">
+{% endblock %}
+
+<div class="content">
+  <section class="course">
+
+    <div class="card" id="{{item.id}}">
+      <div class="card_image-container">
+        <div class="{{item.id}}-span">
+          <span>{{item.span}}</span>
+        </div>
+        <img src="https://skylab.rocketseat.com.br/static/media/{{item.img_id}}" alt="{{item.id}}">
+      </div>
+      <div class="card_content">
+        <p>
+          {{item.description}}
+        </p>
+      </div>
+      <div class="card_info">
+        <p>{{item.modules}}</p>
+        <p class="card_price" id="{{item.id}}_price">{{item.price}}</p>
+      </div>
+    </div>
+
+    <div class="package">
+      <h1>O que é o {{item.title}}?</h1>
+      <p>{{item.about}}</p>
+      <a href="{{item.link}}" target="_blank">{{item.acess}}</a>
+    </div>
+    
+  </section>
+</div>
+
+{% endblock %}

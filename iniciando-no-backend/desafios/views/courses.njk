@@ -3,9 +3,9 @@
 {% block content %}
 
 {% block head %}
-  <title>Content - Rocketseat</title>
+  <title>Cursos - Rocketseat</title>
 
-  <link rel="stylesheet" href="content.css">
+  <link rel="stylesheet" href="/courses.css">
 {% endblock %}
 
     <div class="content">
@@ -38,11 +38,11 @@
       <div class="modal">
         <a class="close-modal"><img src="./assets/close-black-18dp.svg" alt="Close"></a>
         <a class="maximize-modal"><img src="./assets/aspect_ratio-black-18dp.svg" alt="Maximize"></a>
-
+        
        <div class="modal-content">
-         <iframe src="" frameborder="0"></iframe>
+         <iframe src="https://rocketseat.com.br/{{item.id}}" frameborder="0"></iframe>
        </div>
-
+       
       </div>
     </div>
   

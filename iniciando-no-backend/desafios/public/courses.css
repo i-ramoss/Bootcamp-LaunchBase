@@ -58,16 +58,13 @@ body {
   border: 3px solid var(--gostack-color);
 }
 
-.card .starter-span,
-.card strong.starter {
+.card .starter-span, strong.starter {
   color: var(--rocket-color);
 }
-.card .launchbase-span,
-.card strong.launchbase {
+.card .launchbase-span, strong.launchbase {
   color: var(--launch-color);
 }
-.card .gostack-span,
-.card strong.gostack {
+.card .gostack-span, strong.gostack {
   color: var(--gostack-color);
 }
 

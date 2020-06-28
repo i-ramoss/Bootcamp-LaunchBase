@@ -24,7 +24,7 @@ nunjucks.configure('views', {
 }) 
 
 // cria a rota '/' (rota principal)
-server.get('/', function(require, response) {
+server.get('/', (require, response) => {
 
   // define um objeto para ser utilizado no frontend
   const about = {
@@ -38,31 +38,37 @@ server.get('/', function(require, response) {
       ]
     }
   
-  // retorna a renderização da rota about
+  // retorna a renderização da rota '/about'
   return response.render('about', { about })
 })
 
 // cria a rota '/studies'
-server.get('/studies', function(require, response) {
+server.get('/studies', (require, response) => {
 
   // retorna a renderização da rota studies e do objeto videos para o frontend
   return response.render('studies', { items: videos })
 })
 
-server.get('/video', function(require, response) {
+// cria a rota '/video' que irá redirecionar um vídeo de id específico para essa rota
+server.get('/video', (require, response) => {
+
+  // busca o parâmetro id no url do site e armazena na variável id
   const id = require.query.id
 
+  // função filtra um url específico
   const video = videos.find(function(video) {
     return video.id == id
   })
   
+  // se o id não existir, uma págin de vídeo não encontrado será exibida
   if (!video) 
     return response.send('Video not found!')
 
+  // retorna o vídeo encontrado
   return response.render('video', { item: video })
 })
 
 // configura o servidor para ouvir na porta 3000
-server.listen(3000, () => {
+server.listen(5000, () => {
   console.log('Server is runningn')
 }) 
