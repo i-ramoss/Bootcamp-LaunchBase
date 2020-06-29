@@ -13,10 +13,10 @@
 </p>
 
 <p align="center">
-  <a href="#desafio-3-1-primeiro-servidor">2-1</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#desafio-3-2-arquivos-nunjucks-e-dados-dinamicos">2-2</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#desafio-3-3-página-de-cursos-e-iframe">2-3</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#desafio-construindo-foodfy">2-4</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#desafio-3-1-primeiro-servidor">3-1</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#desafio-3-2-arquivos-nunjucks-e-dados-dinamicos">3-2</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#desafio-3-3-página-de-descrição-do-curso">3-3</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#desafio-refatorando-foodfy">3-4</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#key-licença">Licença</a>
 </p>
 
