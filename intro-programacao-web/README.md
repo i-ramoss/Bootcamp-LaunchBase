@@ -15,9 +15,16 @@
 </p>
 
 <p align="center">
+  <a href="#pushpin-sobre">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#rocket-desafios">Desafios</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#key-licença">Licença</a>
 </p>
+
+## :pushpin: Sobre:
+
+Este módulo consiste no aprendizado e aplicação dos fundamentos do JavaScript. 
+Foram trabalhados conceitos como: tipos numéricos, condicionais, operadores lógicos e aritméticos, objetos, vetores, estruturas de repetição e funções, além de padronização de código.
+
 
 ## :rocket: Desafios:
 

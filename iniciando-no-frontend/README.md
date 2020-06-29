@@ -15,9 +15,15 @@
 </p>
 
 <p align="center">
+  <a href="#pushpin-sobre">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#rocket-desafios">Desafios</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#key-licença">Licença</a>
 </p>
+
+## :pushpin: Sobre:
+
+Neste módulo foram abordados os conceitos fundamentais e essenciais para a programação web a partir do HTML e CSS além do próprio JavaScript.
+
 
 ## :rocket: Desafios:
 
