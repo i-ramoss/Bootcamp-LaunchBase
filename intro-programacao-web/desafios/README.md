@@ -2,7 +2,9 @@
     <img alt="Launchbase" src="https://storage.googleapis.com/golden-wind/bootcamp-launchbase/logo.png" width="400px" />
 </h1>
 
-<h2 align="center">Desafio 1-1: Primeiros passos com JS</h2>
+<h3 align="center">
+  Desafios - Introdução à programação WEB
+</h3>
 
 <p align="center">
 
@@ -20,6 +22,8 @@
   <a href="#key-licença">Licença</a>
 </p>
 
+
+<h2 align="center">Desafio 1-1: Primeiros passos com JS</h2>
 
 ## :rocket: Sobre o desafio:
 

@@ -22,7 +22,8 @@
 
 ## :pushpin: Sobre:
 
-Neste módulo foram abordados os conceitos fundamentais e essenciais para a programação web a partir do HTML e CSS além do próprio JavaScript.
+Neste módulo foram abordados os conceitos fundamentais e essenciais para a programação web a partir do HTML e CSS além do próprio JavaScript. <br>
+Além disso foi desenvolvido uma janela pop-up no estilo modal, utilização de grid layout, manipulação da DOM e substituição de conteúdo pelo iframe utilizando JavaScript.
 
 
 ## :rocket: Desafios:

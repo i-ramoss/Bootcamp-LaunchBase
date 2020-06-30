@@ -2,7 +2,9 @@
     <img alt="Launchbase" src="https://storage.googleapis.com/golden-wind/bootcamp-launchbase/logo.png" width="400px" />
 </h1>
 
-<h2 align="center">Desafio 2-1: Primeiro HTML</h2>
+<h3 align="center">
+  Desafios - Iniciando no Front-end
+</h3>
 
 <p align="center">
 
@@ -20,6 +22,16 @@
   <a href="#key-licença">Licença</a>
 </p>
 
+## :pushpin: Sobre:
+
+Nos desafios desse módulo eu precisei construir um site sobre a Rocketseat onde apresentei algumas informações sobre a empresa além dos bootcamps que ela desenvolve. <br> 
+Foi usado um pop-up modal que redireciona para a página oficial do bootcamp selecionado.
+
+<div align="center">
+  <img src="https://i.ibb.co/dgngJDW/desafio-front.gif" alt="desafio-front" height="450px">
+</div>
+
+<h2 align="center">Desafio 2-1: Primeiro HTML</h2>
 
 ## :rocket: Sobre o desafio
 
