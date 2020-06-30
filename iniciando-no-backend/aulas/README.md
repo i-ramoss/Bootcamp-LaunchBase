@@ -21,8 +21,9 @@
 
 
 <div align="center">
-  <img src="https://i.ibb.co/F6jYPsz/aulas-backend.gif" alt="perfil pessoal" height="450px">
+  <img src="https://s7.gifyu.com/images/aulas_backend.gif" alt="perfil pessoal" height="450px">
 </div>
+
 
 ## :pushpin: Sobre:
 

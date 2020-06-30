@@ -25,8 +25,9 @@
 
 
 <div align="center">
-  <img src="https://i.ibb.co/B4nCRbz/desafios-back.gif" alt="rocketseat" height="450px">
+  <img src="https://s7.gifyu.com/images/desafios_back.gif" alt="rocketseat" height="450px">
 </div>
+
 
 ## :pushpin: Sobre:
 
@@ -110,7 +111,7 @@ https://skylab.rocketseat.com.br/h/forum/launchbase/07c66e6d-06ff-4cfb-baf2-b5b2
 Você tem liberdade para escolher a estilização que preferir para esse desafio.
 
 
-<h2 align="center">Desafio 3: Refatorando Foodfy</h2>
+<h2 align="center">Desafio: Refatorando Foodfy</h2>
 
 ## :rocket: Sobre o desafio
 

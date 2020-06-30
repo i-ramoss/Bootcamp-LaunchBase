@@ -25,7 +25,7 @@
 
 
 <div align="center">
-  <img src="hhttps://i.ibb.co/L545h1k/desafio-front.gif" alt="desafio-front" height="450px">
+  <img src="https://i.ibb.co/L545h1k/desafio-front.gif" alt="desafio-front" height="450px">
 </div>
 
 ## :pushpin: Sobre:
