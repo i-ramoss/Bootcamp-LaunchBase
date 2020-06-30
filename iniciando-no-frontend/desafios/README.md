@@ -15,6 +15,7 @@
 </p>
 
 <p align="center">
+  <a href="#pushpin-sobre">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#desafio-2-1-primeiro-html">2-1</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#desafio-2-2-página-de-descrição">2-2</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#desafio-2-3-página-de-cursos-e-iframe">2-3</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -22,14 +23,16 @@
   <a href="#key-licença">Licença</a>
 </p>
 
+
+<div align="center">
+  <img src="hhttps://i.ibb.co/L545h1k/desafio-front.gif" alt="desafio-front" height="450px">
+</div>
+
 ## :pushpin: Sobre:
 
 Nos desafios desse módulo eu precisei construir um site sobre a Rocketseat onde apresentei algumas informações sobre a empresa além dos bootcamps que ela desenvolve. <br> 
 Foi usado um pop-up modal que redireciona para a página oficial do bootcamp selecionado.
 
-<div align="center">
-  <img src="https://i.ibb.co/dgngJDW/desafio-front.gif" alt="desafio-front" height="450px">
-</div>
 
 <h2 align="center">Desafio 2-1: Primeiro HTML</h2>
 

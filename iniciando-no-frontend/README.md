@@ -41,3 +41,8 @@ Este projeto está sob licença MIT, para mais detalhes verifique em [LICENSE](h
 ---
 
 Feito com :green_heart: por **Ian Ramos** :fire: [Entre em contato!](https://www.linkedin.com/in/ian-ramos/)
+
+
+
+
+<img src="https://i.ibb.co/6NK88bH/aulas-front.gif" alt="perfil pessoal" height="450px">

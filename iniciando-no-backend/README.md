@@ -23,8 +23,8 @@
 
 ## :pushpin: Sobre:
 
-Este módulo trouxe um conhecimento base incrível sobre servidor e conexão e troca de dados entre o backend e o frontend.
-Foi possível entender de fato como uma aplicação funciona, desde à conexão com, utilizando o express do Node.js além da busca de parâmetros com route params e filtro com query params até a entrega desses dados para o frontend.
+Este módulo trouxe um conhecimento base incrível sobre servidor e conexão e troca de dados entre o backend e o frontend. <br>
+Foi possível entender de fato como uma aplicação funciona, desde à conexão com, utilizando o express do Node.js além da busca de parâmetros com route params e filtro com query params até a entrega desses dados para o frontend. <br>
 Além disso foi apresentado a ideia de dados dinâmicos e reaproveitamento de código utilizando o Nunjucks
 
 

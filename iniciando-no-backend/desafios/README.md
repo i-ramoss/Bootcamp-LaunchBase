@@ -25,14 +25,14 @@
 
 
 <div align="center">
-  <img src="https://i.ibb.co/wJcz1V0/desafios-back.gif" alt="rocketseat" height="450px">
+  <img src="https://i.ibb.co/B4nCRbz/desafios-back.gif" alt="rocketseat" height="450px">
 </div>
 
 ## :pushpin: Sobre:
 
 Os desafios desse módulo se trataram de uma continuação direta do front, mas o foco foi no servidor da aplicação e armazenamento de dados. <br>
 Dessa vez eu tive que, ao invés de mostrar um modal com o site do bootcamp respectivo, criar uma nova página com uma descrição sobre o curso e nela uma opção que redirecione para o site da Rocketseat. <br>
-O desafio real desse módulo foi construir todo o servidor que hospedaria a aplicação com o Node.js, além de deixar todos os dados dinâmicos utilizando template engines, no caso o Nunjucks, a busca e filtro de requisições no URL. e também a exportação e importação de dados.
+O desafio real desse módulo foi construir todo o servidor, com o Node.js, que hospedaria a aplicação, além de deixar todos os dados dinâmicos utilizando template engines, no caso o Nunjucks, a busca e filtro de requisições no URL e também a exportação e importação de dados.
 
 
 <h2 align="center">Desafio 3-1: Primeiro servidor</h2>

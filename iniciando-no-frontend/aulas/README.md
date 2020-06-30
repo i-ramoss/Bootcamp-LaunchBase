@@ -21,12 +21,12 @@
 
 
 <div align="center">
-  <img src="https://i.ibb.co/6NK88bH/aulas-front.gif" alt="perfil pessoal" height="450px">
+  <img src="https://i.ibb.co/mSn00t9/aulas-front.gif" alt="perfil pessoal" height="450px">
 </div>
 
 ## :pushpin: Sobre:
 
-Nessas aulas, como prática foi desenvolvido um portifólio pessoal, que no meu caso, adaptado, construí um perfil sobre mim exibe algumas informações e o que venho estudando. <br>
+Nessas aulas, como prática foi desenvolvido um portifólio pessoal, que no meu caso, adaptado, construí um perfil sobre mim que exibe algumas informações e o que venho estudando. <br>
 Foi usado um pop-up modal que ao ser clicado redireciona para a o vídeo desejado.
 
 
