@@ -5,7 +5,7 @@
   "scripts": {
     "start": "npm-run-all -p nodemon browsersync",
     "nodemon": "nodemon src/server.js",
-    "browsersync": "browser-sync start --proxy http://localhost:3000 --files public, src/views "
+    "browsersync": "browser-sync start --proxy http://localhost:3000 --files 'public, src'"
   },
   "dependencies": {
     "express": "^4.17.1",

@@ -1,0 +1,22 @@
+{
+  "instructors": [
+    {
+      "id": 1,
+      "avatar_url": "https://google.com",
+      "name": "Flora",
+      "birth": 1577836800000,
+      "gender": "F",
+      "services": "crossfit",
+      "created_at": 1595365034154
+    },
+    {
+      "id": 2,
+      "name": "Cecíli",
+      "avatar_url": "https://google.com",
+      "birth": 1577836800000,
+      "gender": "F",
+      "services": "body builder",
+      "created_at": 1595365104831
+    }
+  ]
+}

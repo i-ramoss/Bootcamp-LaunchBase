@@ -1,0 +1,62 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+
+<form class="card" method='POST' action='/teachers'>
+  <section class="image"></section>
+
+  <section class="details">
+    <h3>Informations:</h3>
+
+    <ul>
+      <li class="item">
+        <div>New Teacher:</div>
+        <div>
+          <input type="url" name='avatar_url' placeholder='http://'>
+        </div>
+      </li>
+      <li class="item">
+        <div>Full name:</div>
+        <div>
+          <input type="text" name='name' placeholder='Enter your full name'>
+        </div>
+      </li>
+      <li class="item">
+        <div>Date of birth:</div>
+        <div>
+          <input type='date' name='birth'>
+        </div>
+      </li>
+      <li class="item">
+        <div>Educational level:</div>
+        <div>
+          <select name='education'>
+            <option value="" disabled selected>Select</option>
+            <option value='high_school'>Complete High School</option>
+            <option value='higher_education'>Complete Higher Education</option>
+            <option value='masters'>Master's</option>
+            <option value='doctorate'>Doctorate</option>
+          </select>
+        </div>
+      </li>
+      <li class="item">
+        <div>Class type:</div>
+        <div>
+          <span><input type='radio' name='class_type' value='presential' checked>Presential</span>
+          <span><input type='radio' name='class_type' value='remotely'>Remotely</span>
+        </div>
+      </li>
+      <li class="item">
+        <div>University taught:</div>
+        <div>
+          <input type='text' name='subject' placeholder='Separate the disciplines provided by a comma'>
+        </div>
+      </li>
+    </ul>
+
+    <button type='submit'>Save</button>    
+ 
+  </section>
+</form>
+
+{% endblock content %}

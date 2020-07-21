@@ -10,6 +10,9 @@ const routes = require('./routes')
 // executa as funcionalidades do servidor
 const server = express()
 
+// responsável por fazer funcionar o require.body
+server.use(express.urlencoded({ extended:true }))
+
 // diz ao express para usar arquivos estáticos da página public
 server.use(express.static('public'))
 

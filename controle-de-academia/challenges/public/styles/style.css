@@ -141,3 +141,41 @@ li:first-child {
   text-transform: uppercase;
   font-size: 14px;
 }
+
+/* form */
+
+input {
+  width: 100%;
+  outline: none;
+  color: #555;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+input[type='radio'] {
+  width: initial;
+  margin-right: 8px;
+}
+
+input::placeholder {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+button[type='submit'] {
+  padding: 8px 32px;
+  color: black;
+  font-size: 16px;
+  background-color: var(--primary-color);
+  border-radius: 20px;
+  width: 100%;
+  margin-top: 28px;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  color: #555;
+  font-weight: bold;
+  font-size: 16px;
+}

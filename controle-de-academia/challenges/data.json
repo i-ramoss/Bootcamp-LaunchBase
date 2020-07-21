@@ -1,0 +1,14 @@
+{
+  "teachers": [
+    {
+      "id": 1,
+      "avatar_url": "http://google.com",
+      "name": "Flora",
+      "birth": 939945600000,
+      "education": "doctorate",
+      "class_type": "remotely",
+      "subject": "poazidea",
+      "created_at": 1595372166868
+    }
+  ]
+}

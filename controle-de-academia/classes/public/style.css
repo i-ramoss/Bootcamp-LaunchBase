@@ -136,3 +136,33 @@ header {
   font-size: 14px;
 }
 
+/*  === FORM === */
+
+input {
+  width: 100%;
+  outline: none;
+  color: #555;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+input[type='radio'] {
+  width: initial;
+  margin-right: 8px;
+}
+
+button[type='submit'] {
+  font-size: 16px;
+  padding: 8px 32px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 20px;
+  width: 100%;
+  margin-top: 32px;
+}
+
+input::placeholder {
+  font-size: 16px;
+  font-weight: normal;
+}
+
