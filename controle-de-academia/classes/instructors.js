@@ -2,7 +2,39 @@
 const fs = require('fs')
 
 const data = require('./data.json')
-const { send } = require('process')
+const { age, date } = require ('./utils')
+//const { send } = require('process')
+
+
+// show
+exports.show = (require, response) => {
+
+  // retira de dentro do req.params o id, transformando-o numa variável
+  const { id } = require.params
+
+  // tenta encontrar o instrutor de dentro do array de instrutores no data
+  const foundInstructor = data.instructors.find(function(instructor) {
+    return instructor.id == id
+  })
+
+  // instrutor não encontrado
+  if (!foundInstructor) return response.send('Instructor not found')
+
+  const instructor = {
+
+    // spread: poe dentro do objeto tudo do foundInstructor, sobrescrevendo o que foi reescrito
+    ...foundInstructor,
+    age: age(foundInstructor.birth),
+    services: foundInstructor.services.split(','),
+
+    // formata a data baseado no idioma desejado
+    created_at: new Intl.DateTimeFormat('en-US').format(foundInstructor.created_at)
+  }
+
+  // retorna o instrutor encontrado
+  return response.render('instructors/show', { instructor } )
+}
+
 
 // create
 exports.post = (require, response) => {
@@ -56,4 +88,31 @@ exports.post = (require, response) => {
 
     return response.redirect('/instructors')
   })
+}
+
+
+// edit
+exports.edit = (require, response) => {
+
+  // retira de dentro do req.params o id, transformando-o numa variável
+  const { id } = require.params
+
+  // tenta encontrar o instrutor de dentro do array de instrutores no data
+  const foundInstructor = data.instructors.find(function(instructor) {
+    return instructor.id == id
+  })
+
+  // instrutor não encontrado
+  if (!foundInstructor) return response.send('Instructor not found')
+
+  // instructor.birth = 093493499
+  // date(instrucotor.birth)
+  // return yyyy-mm-dd
+
+  const instructor = {
+    ...foundInstructor,
+    birth: date(foundInstructor.birth)
+  }
+
+  return response.render('instructors/edit', { instructor })
 }

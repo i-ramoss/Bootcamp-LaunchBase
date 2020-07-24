@@ -18,6 +18,12 @@ routes.get('/instructors/create', (require, response) => {
   return response.render('instructors/create')
 })
 
+// rota que permite a busca pelo id através do parâmetro na requisição
+routes.get('/instructors/:id', instructors.show)
+
+// rota de edição dos campos de instrutor
+routes.get('/instructors/:id/edit', instructors.edit)
+
 // o método http POST é o responsável por enviar os dados de um formulário no corpo da mensagem HTTP
 routes.post('/instructors', instructors.post)
 
