@@ -162,7 +162,8 @@ input::placeholder {
   font-weight: normal;
 }
 
-button[type='submit'] {
+button[type='submit'],
+a.button {
   padding: 8px 32px;
   color: black;
   font-size: 16px;
@@ -170,6 +171,11 @@ button[type='submit'] {
   border-radius: 20px;
   width: 100%;
   margin-top: 28px;
+}
+
+a.button {
+  display: inline-block;
+  text-align: center;
 }
 
 select {

@@ -3,7 +3,10 @@
 {% block content %}
 
 <div class='card'>
-  <section class='image'></section>
+  <section 
+  class='image'
+  style='background: url({{ teacher.avatar_url }}) no-repeat center center / cover'>
+  </section>
 
   <section class='details'>
     <h3>Informations:</h3>
@@ -11,32 +14,40 @@
     <ul>
       <li class='item'>
         <div>Full name:</div>
-        <div>Flora Reis</div>
+        <div>{{ teacher.name }}</div>
       </li>
+
       <li class='item'>
         <div>Age:</div>
-        <div>30</div>
+        <div>{{ teacher.age }}</div>
       </li>
+      
       <li class='item'>
         <div>Education level:</div>
-        <div>Doctorate</div>
+        <div>{{ teacher.education }}</div>
       </li>
+
       <li class='item'>
         <div>Class type:</div>
-        <div>Remotely</div>
+        <div>{{ 'Presential' if teacher.class_type == 'presential' else 'Remotely' }}</div>
       </li>
+
       <li class='item'>
         <div>University subject:</div>
         <div>
-          <span>Data Structure and Algorithms</span>
-          <span>Compilers</span>
+          {% for discipline in teacher.disciplines %}
+            <span>{{ discipline }}</span>
+          {% endfor %}
         </div>
       </li>
+      
       <li class='item'>
         <div>On the platform since:</div>
-        <div>10/10/2020</div>
+        <div>{{ teacher.created_at }}</div>
       </li>
     </ul>
+
+    <a class='button' href="#">Edit</a>
     
   </section>
 </div>

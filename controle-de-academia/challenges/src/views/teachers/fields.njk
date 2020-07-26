@@ -1,0 +1,58 @@
+<ul>
+  <li class="item">
+    <div>Avatar_URL:</div>
+    <div>
+      <input type="url" name='avatar_url' placeholder='http://' value='{{ teacher.avatar_url }}'>
+    </div>
+  </li>
+
+  <li class="item">
+    <div>Full name:</div>
+    <div>
+      <input type="text" name='name' placeholder='Enter your full name' value='{{ teacher.name }}'>
+    </div>
+  </li>
+
+  <li class="item">
+    <div>Date of birth:</div>
+    <div>
+      <input type='date' name='birth' value='{{ teacher.birth }}'>
+    </div>
+  </li>
+
+  <li class="item">
+    <div>Educational level:</div>
+    <div>
+      <select name='education'>
+        <option value="" disabled selected>Select</option>
+        <option value='high_school'>Complete High School</option>
+        <option value='higher_education'>Complete Higher Education</option>
+        <option value='masters'>Master</option>
+        <option value='doctorate'>Doctorate</option>
+      </select>
+    </div>
+  </li>
+
+  <li class="item">
+    <div>Class type:</div>
+    <div>
+      <span>
+        <input type='radio' name='class_type' value='presential' 
+        {% if teacher.class_type == 'presential' %} checked {% endif %}>Presential
+      </span>
+      <span>
+        <input type='radio' name='class_type' value='remotely'
+        {% if teacher.class_type == 'remotely' %} checked {% endif %}>Remotely
+      </span>
+    </div>
+  </li>
+
+  <li class="item">
+    <div>University taught:</div>
+    <div>
+      <input type='text' name='disciplines' placeholder='Separate the disciplines provided by a comma' value='{{ teacher.disciplines }}'>
+    </div>
+  </li>
+</ul>
+
+<button type='submit'>Save</button>

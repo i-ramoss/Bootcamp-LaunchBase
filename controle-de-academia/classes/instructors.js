@@ -28,7 +28,7 @@ exports.show = (require, response) => {
     services: foundInstructor.services.split(','),
 
     // formata a data baseado no idioma desejado
-    created_at: new Intl.DateTimeFormat('en-US').format(foundInstructor.created_at)
+    created_at: new Intl.DateTimeFormat('pt-Br').format(foundInstructor.created_at)
   }
 
   // retorna o instrutor encontrado

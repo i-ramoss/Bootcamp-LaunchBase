@@ -18,6 +18,12 @@ routes.get('/teachers/create', (require,response) => {
   return response.render('teachers/create')
 })
 
+// busca um professor pelo id
+routes.get('/teachers/:id', teachers.show)
+
+// rota de edição de um professor
+routes.get('/teachers/:id/edit', teachers.edit)
+
 // permite o envio dos dados do formulário
 routes.post('/teachers', teachers.post)
 
