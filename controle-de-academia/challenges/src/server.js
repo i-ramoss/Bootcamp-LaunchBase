@@ -7,6 +7,8 @@ const nunjucks = require('nunjucks')
 // a variável routes adquire importa o arquivo routes.js pro servidor
 const routes = require('./routes')
 
+const methodOverride = require('method-override')
+
 // executa as funcionalidades do servidor
 const server = express()
 
@@ -15,6 +17,9 @@ server.use(express.urlencoded({ extended: true }))
 
 // diz ao express para usar arquivos estáticos da página public
 server.use(express.static('public'))
+
+// permite utilizar os métodos PUT e DELETE em forms HTML sobrescrevendo o método padrão
+server.use(methodOverride('_method'))
 
 // midleware que utiliza o arquivo routes no servidor
 server.use(routes)

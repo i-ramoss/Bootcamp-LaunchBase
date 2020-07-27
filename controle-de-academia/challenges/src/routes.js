@@ -10,6 +10,8 @@ routes.get('/', (require, response) => {
   return response.redirect('/teachers')
 })
 
+// teachers
+
 routes.get('/teachers', (require, response) => {
   return response.render('teachers/index')
 })
@@ -27,10 +29,17 @@ routes.get('/teachers/:id/edit', teachers.edit)
 // permite o envio dos dados do formulário
 routes.post('/teachers', teachers.post)
 
+// permite a atualização dos dados de um professor
+routes.put('/teachers', teachers.update)
+
+routes.delete('/teachers', teachers.delete)
+
+
+// students
+
 routes.get('/students', (require, response) => {
   return response.send('students')
 })
-
 
 
 module.exports = routes

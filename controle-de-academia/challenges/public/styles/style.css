@@ -185,3 +185,8 @@ select {
   font-weight: bold;
   font-size: 16px;
 }
+
+#form-delete button[type='submit'] {
+  margin-top: 15px;
+  background-color: tomato;
+}
