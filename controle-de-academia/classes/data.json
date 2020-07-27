@@ -3,10 +3,10 @@
     {
       "id": 1,
       "avatar_url": "https://images.unsplash.com/photo-1575859692131-8f9a3e753005?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-      "name": "Flora",
-      "birth": 1577836800000,
+      "name": "Flora Ramos",
+      "birth": 845337600000,
       "gender": "F",
-      "services": "crossfit, bodybuilder",
+      "services": "crossfit, bodybuilder, swimming, dancing",
       "created_at": 1595365034154
     },
     {
@@ -26,33 +26,6 @@
       "gender": "F",
       "services": "dancing, crossfit",
       "created_at": 1595518608741
-    },
-    {
-      "id": 4,
-      "avatar_url": "https://google.com",
-      "name": "Ian",
-      "birth": 939945600000,
-      "gender": "M",
-      "services": "boxing, judo",
-      "created_at": 1595616823601
-    },
-    {
-      "id": 5,
-      "avatar_url": "https://google.com",
-      "name": "Ramos",
-      "birth": 931996800000,
-      "gender": "M",
-      "services": "karate",
-      "created_at": 1595617048283
-    },
-    {
-      "id": 6,
-      "avatar_url": "https://google.com",
-      "name": "Ian Ramos",
-      "birth": 939945600000,
-      "gender": "M",
-      "services": "easy",
-      "created_at": 1595622031408
     }
   ]
 }

@@ -24,8 +24,13 @@ routes.get('/instructors/:id', instructors.show)
 // rota de edição dos campos de instrutor
 routes.get('/instructors/:id/edit', instructors.edit)
 
-// o método http POST é o responsável por enviar os dados de um formulário no corpo da mensagem HTTP
+// o método http POST é o responsável por criar um novo resource com os dados enviados
 routes.post('/instructors', instructors.post)
+
+// o método http PUT é o responsável por atualizar um resource existente a partir de uma requisição do body
+routes.put('/instructors', instructors.put)
+
+routes.delete('/instructors', instructors.delete)
 
 routes.get('/members', (require, response ) => {
   return response.send('members')

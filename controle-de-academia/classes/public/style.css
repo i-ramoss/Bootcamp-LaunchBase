@@ -174,3 +174,8 @@ input::placeholder {
   font-weight: normal;
 }
 
+#form-delete button[type='submit'] {
+  margin-top: 15px;
+  background-color: tomato; 
+}
+

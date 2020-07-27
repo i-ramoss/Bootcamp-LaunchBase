@@ -116,3 +116,52 @@ exports.edit = (require, response) => {
 
   return response.render('instructors/edit', { instructor })
 }
+
+
+// atualize
+exports.put = (require, response) => {
+  const { id } = require.body
+  let index = 0
+
+  const foundInstructor = data.instructors.find((instructor, foundIndex) => {
+    if (instructor.id == id) {
+      index = foundIndex
+      return true
+    }
+  })
+
+  if (!foundInstructor) return response.send('Instructor not found!')
+
+  const instructor = {
+    ...foundInstructor,
+    ...require.body,
+    birth: Date.parse(require.body.birth)
+  }
+
+  data.instructors[index] = instructor
+
+  fs.writeFile('data.json', JSON.stringify(data, null, 2), (err) => {
+    if(err) return response.send('Write file error!')
+
+  return response.redirect(`/instructors/${id}`)
+
+  })
+}
+
+// delete 
+exports.delete = (require, response) => {
+  const { id } = require.body 
+  const filteredInstructors = data.instructors.filter((instructor) => {
+
+    // se retornar true, poe dentro do array filteredInstrucors, caso false, tira do array
+    return instructor.id != id
+  })
+
+  data.instructors = filteredInstructors
+
+  fs.writeFile('data.json', JSON.stringify(data, null, 2), (err) => {
+    if(err) return response.send('Write file error!')
+
+    return response.redirect('/instructors')
+  })
+}
