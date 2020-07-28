@@ -10,20 +10,24 @@
 
   <section class="details">
 
-    <form  method='post' action='/teachers?_method=PUT'>
+    <form  id='form-update' method='post' action='/teachers?_method=PUT'>
       
       <h3>Edit Teacher:</h3>
 
-      {% include 'teachers/fields.njk'%}  
+      {% include 'teachers/fields.njk'%} 
 
+      <div class="button">
+        <button class='save' type='submit'>Save</button>
+        <button form='form-delete' class='delete' type="submit">Delete</button>
+      </div>
+      
       <input type="hidden" name="id" value="{{ teacher.id }}"> 
 
     </form>
 
-    <form id='form-delete'method="post" action="/teachers?_method=DELETE">
-      <input type="hidden" name="id" value="{{ teacher.id }}">
-      <button type="submit">Delete</button>
-    </form>
+    <form id='form-delete' method="post" action="/teachers?_method=DELETE">
+      <input type="hidden" name="id" value="{{ teacher.id }}">    
+    </form> 
 
   </section>  
 </div>

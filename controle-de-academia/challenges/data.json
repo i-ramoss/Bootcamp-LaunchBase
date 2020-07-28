@@ -29,16 +29,6 @@
       "class_type": "presential",
       "disciplines": "data structure and algorithms, math",
       "created_at": 1595693129839
-    },
-    {
-      "id": 4,
-      "avatar_url": "https://google.com",
-      "name": "Maria",
-      "birth": 939945600000,
-      "education": "masters",
-      "class_type": "remotely",
-      "disciplines": "math",
-      "created_at": 1595701651674
     }
   ]
 }
