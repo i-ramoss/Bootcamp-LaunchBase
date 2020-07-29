@@ -3,6 +3,16 @@ const fs = require('fs')
 const data = require('../data.json')
 const { age, date, graduation } = require('./utils')
 
+// painel of teachers
+exports.painel = (require, response) => {
+  const teachers = Object(data.teachers)
+
+  console.log(teachers)
+  
+  return response.render('teachers/index', { teachers: teachers })
+}
+
+
 //create teacher
 exports.post = (require, response) => {
 

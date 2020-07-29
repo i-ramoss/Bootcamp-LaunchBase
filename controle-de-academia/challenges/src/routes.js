@@ -12,9 +12,7 @@ routes.get('/', (require, response) => {
 
 // teachers
 
-routes.get('/teachers', (require, response) => {
-  return response.render('teachers/index')
-})
+routes.get('/teachers', teachers.painel)
 
 routes.get('/teachers/create', (require,response) => {
   return response.render('teachers/create')

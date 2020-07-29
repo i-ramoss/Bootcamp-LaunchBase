@@ -1,42 +1,35 @@
 {% extends 'layout.njk' %}%}
 
+{% block head %}
+    <link rel="stylesheet" href="/styles/index.css">
+{% endblock %}
+
 {% block content %}
 
-  <div class='card'>
-    <section class='avatar'></section>
+  <div class='card table-container'>
+    <table width='100%'>
 
-    <section class='details'>
-      <h3>Details</h3>
+      <thead>
+        <tr>
+          <th>Instructor</th>
+          <th>Service</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
 
-      <div class="item">
-        <div>Instructor:</div>
-        <div>Ian Ramos</div>
-      </div>
-        
-      <div class="item">
-        <div>Age:</div>
-        <div>28</div>
-      </div>
-        
-      <div class="item">
-        <div>Sex:</div>
-        <div>Male</div>
-      </div>
-      
-      <div class="item">
-        <div>Line of work:</div>
-        <div>
-          <span>Bodybuilding</span>
-          <span>Crossfit</span>
-        </div> 
-      </div>
-      
-      <div class="item">
-        <div>Since:</div>
-        <div>08/08/2020</div>
-      </div>
-        
-    </section>
+      <tbody>
+        {% for instructor in instructors%}
+        <tr>
+          <td>
+            <span style="background-image: url({{ instructor.avatar_url }})"></span>
+            {{ instructor.name }}
+          </td>
+          <td>{{ instructor.services }}</td>
+          <td><a href="/instructors/{{ instructor.id }}">Open</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </div>
 
 {% endblock content %}

@@ -5,6 +5,10 @@ const data = require('./data.json')
 const { age, date } = require ('./utils')
 //const { send } = require('process')
 
+exports.index = (require, response ) => {
+  return response.render('instructors/index', { instructors: data.instructors })
+}
+
 
 // show
 exports.show = (require, response) => {
@@ -111,7 +115,7 @@ exports.edit = (require, response) => {
 
   const instructor = {
     ...foundInstructor,
-    birth: date(foundInstructor.birth)
+    birth: date(foundInstructor.birth),
   }
 
   return response.render('instructors/edit', { instructor })
@@ -135,7 +139,8 @@ exports.put = (require, response) => {
   const instructor = {
     ...foundInstructor,
     ...require.body,
-    birth: Date.parse(require.body.birth)
+    birth: Date.parse(require.body.birth),
+    id: Number(require.body.id)
   }
 
   data.instructors[index] = instructor

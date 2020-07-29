@@ -160,6 +160,7 @@ a.button {
   border-radius: 20px;
   width: 100%;
   margin-top: 32px;
+  cursor: pointer;
 }
 
 a.button {
@@ -178,4 +179,3 @@ input::placeholder {
   margin-top: 15px;
   background-color: tomato; 
 }
-
