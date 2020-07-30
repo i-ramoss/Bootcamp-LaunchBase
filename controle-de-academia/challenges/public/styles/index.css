@@ -42,15 +42,15 @@ tbody tr td:first-child span {
   border: 2px solid var(--primary-color);
 }
 
-/* tbody tr td:nth-child(2) span {
+tbody tr td:nth-child(2) span {
   padding: 8px 16px;
   border-radius: 16px;
   background-color: var(--primary-color);
   color: #333;
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-size: 14px;
   letter-spacing: 0.6px;
-} */
+}
 
 tbody tr td:last-child a {
   background-color: var(--primary-color);

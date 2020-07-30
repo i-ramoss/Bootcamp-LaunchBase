@@ -5,11 +5,23 @@ const { age, date, graduation } = require('./utils')
 
 // painel of teachers
 exports.painel = (require, response) => {
-  const teachers = Object(data.teachers)
 
-  console.log(teachers)
-  
-  return response.render('teachers/index', { teachers: teachers })
+  const newTeacher = data.teachers.map((teacher) => {
+    const splitDiscipline = {
+      ...teacher,
+      disciplines: teacher.disciplines.split(',')
+    }
+
+    return splitDiscipline
+  })
+
+  return response.render('teachers/index', { teachers: newTeacher })
+}
+
+
+// create teacher
+exports.create =  (require,response) => {
+  return response.render('teachers/create')
 }
 
 
@@ -63,7 +75,7 @@ exports.show = (require, response) => {
 
   const foundTeacher = data.teachers.find(function(teacher) {
     return teacher.id == id
-  })
+  }) 
 
   if (!foundTeacher) return response.send('Teacher not found')
 

@@ -37,6 +37,6 @@ nunjucks.configure('src/views', {
 
 
 // configura o servidor para ouvir na porta 3000
-server.listen(3000, () => {
-  console.log('The server is running successfully on port 3000')
+server.listen(5000, () => {
+  console.log('The server is running successfully on port 5000')
 }) 

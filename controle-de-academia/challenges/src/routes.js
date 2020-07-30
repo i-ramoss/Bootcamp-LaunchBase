@@ -14,9 +14,7 @@ routes.get('/', (require, response) => {
 
 routes.get('/teachers', teachers.painel)
 
-routes.get('/teachers/create', (require,response) => {
-  return response.render('teachers/create')
-})
+routes.get('/teachers/create', teachers.create)
 
 // busca um professor pelo id
 routes.get('/teachers/:id', teachers.show)
