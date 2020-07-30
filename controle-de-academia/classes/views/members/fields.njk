@@ -1,0 +1,73 @@
+<div class='item'>
+  <div>Avatar URL:</div>
+  <div>
+    <input type='url' name='avatar_url' placeholder='https://' value='{{ member.avatar_url }}' >
+  </div>
+</div>
+
+<div class='item'>
+  <div>Name:</div>
+  <div>
+    <input type='text' name='name' placeholder='Enter your name' value='{{ member.name }}'>
+  </div>
+</div>
+
+<div class='item'>
+  <div>Email:</div>
+  <div>
+    <input type='email' name='email' placeholder='Enter your email' value='{{ member.email }}'>
+  </div>
+</div>
+  
+<div class='item'>
+  <div>Date of birth:</div>
+  <div>
+    <input type='date' name='birth' value='{{ member.birth }}'>
+  </div>
+</div>
+  
+<div class='item'>
+  <div>Sex:</div>
+  <div>
+    <span>
+      <input type='radio' name='gender' value='M'
+      {% if member.gender == 'M' %} checked {% endif %}>Male
+    </span>
+    <span>
+      <input type='radio' name='gender' value='F' 
+      {% if member.gender == 'F' %} checked {% endif %} >Female
+    </span>
+  </div>
+</div>
+
+<div class='item'>
+  <div>Blood type:</div>
+  <div>
+    <select name="blood">
+      <option value="A1" {% if member.blood == 'A1' %} selected {% endif %}>A+</option>
+      <option value="A0" {% if member.blood == 'A0' %} selected {% endif %}>A-</option>
+      <option value="B1" {% if member.blood == 'B1' %} selected {% endif %}>B+</option>
+      <option value="B0" {% if member.blood == 'B0' %} selected {% endif %}>B-</option>
+      <option value="AB1" {% if member.blood == 'AB1' %} selected {% endif %}>AB+</option>
+      <option value="AB0" {% if member.blood == 'AB0' %} selected {% endif %}>AB-</option>
+      <option value="O1" {% if member.blood == 'O1' %} selected {% endif %}>O+</option>
+      <option value="O0" {% if member.blood == 'O0' %} selected {% endif %}>O-</option>
+    </select>
+  </div>
+</div>
+
+<div class='item'>
+  <div>Weight: (kg)</div>
+  <div>
+    <input type='number' name='weight' placeholder='Enter your weight' value='{{ member.weight }}'>
+  </div>
+</div>
+
+<div class='item'>
+  <div>Height: (cm)</div>
+  <div>
+    <input type='number' name='height' placeholder='Enter your height' value='{{ member.height }}'>
+  </div>
+</div>
+
+<button type='submit'>Save</button>

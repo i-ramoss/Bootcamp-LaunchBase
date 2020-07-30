@@ -1,46 +1,21 @@
 // o fs (file system) é um módulo do node que trabalha com os arquivos do sistema
 const fs = require('fs')
 
-const data = require('./data.json')
-const { age, date } = require ('./utils')
-//const { send } = require('process')
+const data = require('../data.json')
+const { age, date } = require ('../utils')
 
+
+// painel
 exports.index = (require, response ) => {
   return response.render('instructors/index', { instructors: data.instructors })
 }
 
-
-// show
-exports.show = (require, response) => {
-
-  // retira de dentro do req.params o id, transformando-o numa variável
-  const { id } = require.params
-
-  // tenta encontrar o instrutor de dentro do array de instrutores no data
-  const foundInstructor = data.instructors.find(function(instructor) {
-    return instructor.id == id
-  })
-
-  // instrutor não encontrado
-  if (!foundInstructor) return response.send('Instructor not found')
-
-  const instructor = {
-
-    // spread: poe dentro do objeto tudo do foundInstructor, sobrescrevendo o que foi reescrito
-    ...foundInstructor,
-    age: age(foundInstructor.birth),
-    services: foundInstructor.services.split(','),
-
-    // formata a data baseado no idioma desejado
-    created_at: new Intl.DateTimeFormat('pt-Br').format(foundInstructor.created_at)
-  }
-
-  // retorna o instrutor encontrado
-  return response.render('instructors/show', { instructor } )
+// create
+exports.create =  (require, response) => {
+  return response.render('instructors/create')
 }
 
-
-// create
+// create (post)
 exports.post = (require, response) => {
 
   //require.body
@@ -94,6 +69,34 @@ exports.post = (require, response) => {
   })
 }
 
+// show
+exports.show = (require, response) => {
+
+  // retira de dentro do req.params o id, transformando-o numa variável
+  const { id } = require.params
+
+  // tenta encontrar o instrutor de dentro do array de instrutores no data
+  const foundInstructor = data.instructors.find(function(instructor) {
+    return instructor.id == id
+  })
+
+  // instrutor não encontrado
+  if (!foundInstructor) return response.send('Instructor not found')
+
+  const instructor = {
+
+    // spread: poe dentro do objeto tudo do foundInstructor, sobrescrevendo o que foi reescrito
+    ...foundInstructor,
+    age: age(foundInstructor.birth),
+    services: foundInstructor.services.split(','),
+
+    // formata a data baseado no idioma desejado
+    created_at: new Intl.DateTimeFormat('pt-Br').format(foundInstructor.created_at)
+  }
+
+  // retorna o instrutor encontrado
+  return response.render('instructors/show', { instructor } )
+}
 
 // edit
 exports.edit = (require, response) => {
@@ -115,14 +118,13 @@ exports.edit = (require, response) => {
 
   const instructor = {
     ...foundInstructor,
-    birth: date(foundInstructor.birth),
+    birth: date(foundInstructor.birth).iso
   }
 
   return response.render('instructors/edit', { instructor })
 }
 
-
-// atualize
+// update
 exports.put = (require, response) => {
   const { id } = require.body
   let index = 0

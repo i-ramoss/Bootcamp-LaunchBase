@@ -1,4 +1,28 @@
 {
+  "members": [
+    {
+      "id": 1,
+      "avatar_url": "https://images.unsplash.com/photo-1523419409543-a5e549c1faa8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=643&q=80",
+      "name": "Ikki",
+      "email": "ikki@ikki.com",
+      "birth": 952041600000,
+      "gender": "M",
+      "blood": "AB1",
+      "weight": "80",
+      "height": "170"
+    },
+    {
+      "id": 2,
+      "avatar_url": "https://images.unsplash.com/photo-1519058082700-08a0b56da9b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+      "name": "Sérgio",
+      "email": "sergio@sergio.com",
+      "birth": -759024000000,
+      "gender": "M",
+      "blood": "AB1",
+      "weight": "103",
+      "height": "190"
+    }
+  ],
   "instructors": [
     {
       "id": 1,
@@ -17,15 +41,6 @@
       "gender": "F",
       "services": "body builder, swimming ",
       "created_at": 1595365104831
-    },
-    {
-      "id": 3,
-      "avatar_url": "https://images.unsplash.com/photo-1532417344469-368f9ae6d187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
-      "name": "Liandra",
-      "birth": 1396569600000,
-      "gender": "F",
-      "services": "dancing, crossfit",
-      "created_at": 1595518608741
     }
   ]
 }

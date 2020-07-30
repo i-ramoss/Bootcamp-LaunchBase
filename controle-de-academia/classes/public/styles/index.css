@@ -42,7 +42,8 @@ tbody tr td:first-child span {
   border: 2px solid var(--primary-color);
 }
 
-tbody tr td:last-child a {
+tbody tr td:last-child a,
+.table-container > a {
   background-color: var(--primary-color);
   padding: 8px 16px;
   border-radius: 20px;
@@ -51,6 +52,12 @@ tbody tr td:last-child a {
   font-size: 10px;
   text-align: center;
   font-weight: bold;
+}
+
+.table-container > a {
+  margin-bottom: 15px;
+  margin-left: 10px;
+  display: inline-block;
 }
 
 th:last-child,

@@ -29,6 +29,24 @@ module.exports = {
     // dd
     const day = `0${date.getUTCDate()}`.slice(-2)
 
-    return `${year}-${month}-${day}`
+    return {
+      day,
+      month,
+      year,
+      iso: `${year}-${month}-${day}`,
+      birthDay: `${day}/${month}`
+    }
+  },
+  blood_type: (value) => {
+    switch(value) {
+      case('A1'): return 'A+'
+      case('A0'): return 'A-'
+      case('B1'): return 'B+'
+      case('B0'): return 'B-'
+      case('AB1'): return 'AB+'
+      case('AB0'): return 'AB-'
+      case('O1'): return 'O+'
+      case('O0'): return 'O-'
+    }
   }
 }
