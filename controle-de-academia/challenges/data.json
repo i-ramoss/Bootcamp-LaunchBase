@@ -1,4 +1,15 @@
 {
+  "students": [
+    {
+      "id": 1,
+      "avatar_url": "https://images.unsplash.com/photo-1532708059644-5590ed51ce4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+      "name": "Maria",
+      "email": "maria@school.com",
+      "birth": 955152000000,
+      "education": "2nd",
+      "weekly": "45"
+    }
+  ],
   "teachers": [
     {
       "id": "1",
@@ -29,6 +40,16 @@
       "class_type": "presential",
       "disciplines": "History",
       "created_at": 1595693129839
+    },
+    {
+      "id": 4,
+      "avatar_url": "https://images.unsplash.com/photo-1513258496099-48168024aec0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+      "name": "Ian Ramos",
+      "birth": 939945600000,
+      "education": "masters",
+      "class_type": "remotely",
+      "disciplines": "algorithms",
+      "created_at": 1596294943881
     }
   ]
 }

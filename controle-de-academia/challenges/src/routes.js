@@ -1,5 +1,6 @@
 const express = require('express')
-const teachers = require('./teachers')
+const teachers = require('./controllers/teachers')
+const students = require('./controllers/students')
 
 // o método Router é capaz de definir a variável desejada como controladora das rotas
 const routes = express.Router()
@@ -33,9 +34,23 @@ routes.delete('/teachers', teachers.delete)
 
 // students
 
-routes.get('/students', (require, response) => {
-  return response.send('students')
-})
+routes.get('/students', students.painel)
+
+routes.get('/students/create', students.create)
+
+// busca um professor pelo id
+routes.get('/students/:id', students.show)
+
+// rota de edição de um professor
+routes.get('/students/:id/edit', students.edit)
+
+// permite o envio dos dados do formulário
+routes.post('/students', students.post)
+
+// permite a atualização dos dados de um professor
+routes.put('/students', students.update)
+
+routes.delete('/students', students.delete)
 
 
 module.exports = routes

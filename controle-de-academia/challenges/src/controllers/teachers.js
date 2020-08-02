@@ -1,7 +1,7 @@
 // módulo do node que trabalha com arquivos do sistema
 const fs = require('fs')
-const data = require('../data.json')
-const { age, date, graduation } = require('./utils')
+const data = require('../../data.json')
+const { age, date, graduation } = require('../utils')
 
 // painel of teachers
 exports.painel = (require, response) => {
@@ -45,8 +45,12 @@ exports.post = (require, response) => {
   // cria uma data do momento atual, a data é apresentada em milissegundos devido ao timestamp
   const created_at = Date.now()
 
-  // cria uma chave única auto incrementável pra cada teacher
-  const id = Number(data.teachers.length+1)
+  // cria uma chave única auto incrementável para cada student
+  let id = 1
+  const lastMember = data.members[data.members.length - 1]
+
+  if (lastMember)
+    id = lastMember.id + 1
 
   // adiciona o objeto ao vetor de teachers do data.json
   data.teachers.push({
@@ -64,7 +68,7 @@ exports.post = (require, response) => {
   fs.writeFile('data.json', JSON.stringify(data, null, 2), (err) => {
     if (err) return response.send('Write file error!')
 
-    return response.redirect('/teachers')
+    return response.redirect(`/teachers/${id}`)
   })
 }
  
@@ -105,7 +109,7 @@ exports.edit = (require,response) => {
 
   const teacher = {
     ...foundTeacher,
-    birth: date(foundTeacher.birth)
+    birth: date(foundTeacher.birth).iso
   }
 
   return response.render('teachers/edit', { teacher })

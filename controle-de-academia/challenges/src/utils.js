@@ -18,7 +18,13 @@ module.exports = {
     const month = `0${date.getUTCMonth() + 1}`.slice(-2)
     const day = `0${date.getUTCDate()}`.slice(-2)
 
-    return `${year}-${month}-${day}`
+    return {
+      day,
+      month,
+      year,
+      iso: `${year}-${month}-${day}`,
+      birthDay: `${day}/${month}`
+    }
   },
   graduation: (value) => {
     switch(value) {
@@ -26,6 +32,17 @@ module.exports = {
       case('higher_education'): return 'Complete Higher Education'
       case('masters'): return 'Master'
       case('doctorate'): return 'Doctorate'
+    }
+  },
+  grade: (value) => { 
+    switch(value) {
+      case('5th'): return '5th year of elementary school'
+      case('6th'): return '6th year of elementary school'
+      case('7th'): return '7th year of elementary school'
+      case('8th'): return '8th year of elementary school'
+      case('1st'): return '1st year of elementary school'
+      case('2nd'): return '2nd year of elementary school'
+      case('3rd'): return '3rd year of elementary school'
     }
   }
 }

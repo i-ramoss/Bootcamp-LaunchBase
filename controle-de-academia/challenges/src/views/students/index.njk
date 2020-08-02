@@ -9,33 +9,31 @@
 {% block content %}
 
 <div class='card table-container'>
-  <a href="teachers/create">New</a>
+  <a href="students/create">New</a>
   <table width='100%'>
 
     <thead>
       <tr>
         <th>Full name:</th>
-        <th>Disciplines:</th>
+        <th>Email:</th>
+        <th>School year:</th>
         <th>Edit</th>
       </tr>
     </thead>
 
     <tbody>
-      {% for teacher in teachers %}
+      {% for student in students %}
         <tr>
           <td>
-            <span style='background-image: url({{ teacher.avatar_url }})'></span>
-            {{ teacher.name }}
+            <span style='background-image: url({{ student.avatar_url }})'></span>
+            {{ student.name }}
           </td>
-          <td>
-            {% for discipline in teacher.disciplines %}
-              <span>{{ discipline }}</span>
-            {% endfor %}
-          </td>
-          <td><a href="/teachers/{{teacher.id}}">Open</a></td>
+          <td>{{ student.email }}</td>
+          <td>{{ student.education }}</td>
+          <td><a href="/students/{{student.id}}">Open</a></td>
         </tr>
       {% endfor %}
     </tbody>
   </table>
-
+  
 {% endblock content %}

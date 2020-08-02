@@ -108,7 +108,7 @@ exports.edit = (require, response) => {
 
   const member = {
     ...foundMember,
-    birth: date(foundMember.birth).iso,
+    birth: date(foundMember.birth).iso
   }
 
   return response.render('members/edit', { member })
