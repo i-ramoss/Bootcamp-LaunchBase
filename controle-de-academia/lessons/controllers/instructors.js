@@ -6,35 +6,35 @@ const { age, date } = require ('../utils')
 
 
 // painel
-exports.index = (require, response ) => {
+exports.index = (request, response ) => {
   return response.render('instructors/index', { instructors: data.instructors })
 }
 
 // create
-exports.create =  (require, response) => {
+exports.create =  (request, response) => {
   return response.render('instructors/create')
 }
 
 // create (post)
-exports.post = (require, response) => {
+exports.post = (request, response) => {
 
-  //require.body
+  //request.body
   //{ "avatar": "https://google.com", "name": "flora", "birth": "2013-11-28", "gender": "F", "services": "miseravi" } - Pega todos os valores do objeto, além das chaves
 
   // Object é um constructor: é uma função vai criar objeto
   // ["avatar", "name", "birth", "gender", "services"] - Criou um array com as chaves do objeto
-  const keys = Object.keys(require.body)
+  const keys = Object.keys(request.body)
 
   //validação dos dados, confere se todos os dados foram preenchidos
   for (key of keys) {
     
-    // require.body.key == ''
-    if (require.body[key] == '')
+    // request.body.key == ''
+    if (request.body[key] == '')
       return response.send('Please, fill all fields!')
   }
 
-  // desestruturação do objeto do require.body
-  let {avatar_url, name, birth, gender, services} = require.body
+  // desestruturação do objeto do request.body
+  let {avatar_url, name, birth, gender, services} = request.body
 
   // tratamento dos dados
   // transforma a string do req.body num formato em milissegundos e substitui
@@ -48,7 +48,7 @@ exports.post = (require, response) => {
 
   
   // organização dos dados para envio
-  // adiciona o require.body ao array da chave instructors
+  // adiciona o request.body ao array da chave instructors
   // []
   data.instructors.push({
     id,
@@ -70,10 +70,10 @@ exports.post = (require, response) => {
 }
 
 // show
-exports.show = (require, response) => {
+exports.show = (request, response) => {
 
   // retira de dentro do req.params o id, transformando-o numa variável
-  const { id } = require.params
+  const { id } = request.params
 
   // tenta encontrar o instrutor de dentro do array de instrutores no data
   const foundInstructor = data.instructors.find(function(instructor) {
@@ -99,10 +99,10 @@ exports.show = (require, response) => {
 }
 
 // edit
-exports.edit = (require, response) => {
+exports.edit = (request, response) => {
 
   // retira de dentro do req.params o id, transformando-o numa variável
-  const { id } = require.params
+  const { id } = request.params
 
   // tenta encontrar o instrutor de dentro do array de instrutores no data
   const foundInstructor = data.instructors.find(function(instructor) {
@@ -125,8 +125,8 @@ exports.edit = (require, response) => {
 }
 
 // update
-exports.put = (require, response) => {
-  const { id } = require.body
+exports.put = (request, response) => {
+  const { id } = request.body
   let index = 0
 
   const foundInstructor = data.instructors.find((instructor, foundIndex) => {
@@ -140,9 +140,9 @@ exports.put = (require, response) => {
 
   const instructor = {
     ...foundInstructor,
-    ...require.body,
-    birth: Date.parse(require.body.birth),
-    id: Number(require.body.id)
+    ...request.body,
+    birth: Date.parse(request.body.birth),
+    id: Number(request.body.id)
   }
 
   data.instructors[index] = instructor
@@ -156,8 +156,8 @@ exports.put = (require, response) => {
 }
 
 // delete 
-exports.delete = (require, response) => {
-  const { id } = require.body 
+exports.delete = (request, response) => {
+  const { id } = request.body 
   const filteredInstructors = data.instructors.filter((instructor) => {
 
     // se retornar true, poe dentro do array filteredInstrucors, caso false, tira do array

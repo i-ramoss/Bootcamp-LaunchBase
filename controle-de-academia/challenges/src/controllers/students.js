@@ -1,33 +1,42 @@
 // módulo do node que trabalha com arquivos do sistema
-const fs = require('fs')
-const data = require('../../data.json')
-const { date, grade } = require('../utils')
+const fs = request('fs')
+const data = request('../../data.json')
+const { date, grade } = request('../utils')
 
 
 // painel of students
-exports.painel = (require, response) => {
-  return response.render('students/index', { students: data.students })
+exports.painel = (request, response) => {
+  const students = []
+
+  for (let student of data.students) {
+    students.push({
+      ...student,
+      education: grade(student.education)
+    })
+  }
+
+  return response.render('students/index', { students })
 }
 
 // create student
-exports.create =  (require,response) => {
+exports.create =  (request,response) => {
   return response.render('students/create')
 }
 
 //create student
-exports.post = (require, response) => {
+exports.post = (request, response) => {
 
   // cria um array com o objeto da requisição
-  const keys = Object.keys(require.body)
+  const keys = Object.keys(request.body)
   
   // validação dos dados, confere se todos os dados foram preenchidos
   for (key of keys) {
-    if (require.body[key] == '')
+    if (request.body[key] == '')
       return response.send('Please, fill in all fields')
   }
 
   // transforma a string de data do formulário em milissegundos
-  birth = Date.parse(require.body.birth)
+  birth = Date.parse(request.body.birth)
 
   // cria uma chave única auto incrementável para cada student
   let id = 1
@@ -39,7 +48,7 @@ exports.post = (require, response) => {
   // adiciona o objeto com os dados de um novo student ao vetor de students do data.json
   data.students.push({
     id,
-    ...require.body,
+    ...request.body,
     birth
   })
 
@@ -52,8 +61,8 @@ exports.post = (require, response) => {
 }
  
 //show student
-exports.show = (require, response) => {
-  const { id } = require.params
+exports.show = (request, response) => {
+  const { id } = request.params
 
   const foundStudent = data.students.find(function(student) {
     return student.id == id
@@ -73,8 +82,8 @@ exports.show = (require, response) => {
 }
 
 // edit student
-exports.edit = (require,response) => {
-  const { id } = require.params
+exports.edit = (request,response) => {
+  const { id } = request.params
 
   const foundStudent = data.students.find(function(student) {
     return student.id == id
@@ -91,8 +100,8 @@ exports.edit = (require,response) => {
 }
 
 // update student
-exports.update = (require, response) => {
-  const { id } = require.body
+exports.update = (request, response) => {
+  const { id } = request.body
   let index = 0
 
   const foundStudent = data.students.find((student, foundIndex) => {
@@ -106,9 +115,9 @@ exports.update = (require, response) => {
 
   const student = {
     ...foundStudent,
-    ...require.body,
-    birth: Date.parse(require.body.birth),
-    id: Number(require.body.id)
+    ...request.body,
+    birth: Date.parse(request.body.birth),
+    id: Number(request.body.id)
   }
 
   data.students[index] = student
@@ -121,8 +130,8 @@ exports.update = (require, response) => {
 }
 
 // delete student
-exports.delete = (require, response) => {
-  const { id } = require.body
+exports.delete = (request, response) => {
+  const { id } = request.body
 
   // filtra e deleta o professor encontrado
   const filteredStudent = data.students.filter((student) => {

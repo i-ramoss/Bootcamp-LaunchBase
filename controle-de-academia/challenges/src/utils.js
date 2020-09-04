@@ -36,13 +36,13 @@ module.exports = {
   },
   grade: (value) => { 
     switch(value) {
-      case('5th'): return '5th year of elementary school'
-      case('6th'): return '6th year of elementary school'
-      case('7th'): return '7th year of elementary school'
-      case('8th'): return '8th year of elementary school'
-      case('1st'): return '1st year of elementary school'
-      case('2nd'): return '2nd year of elementary school'
-      case('3rd'): return '3rd year of elementary school'
+      case('5th'): return '5th Year of Elementary School'
+      case('6th'): return '6th Year of Elementary School'
+      case('7th'): return '7th Year of Elementary School'
+      case('8th'): return '8th Year of Elementary School'
+      case('1st'): return '1st Year of Elementary School'
+      case('2nd'): return '2nd Year of Elementary School'
+      case('3rd'): return '3rd Year of Elementary School'
     }
   }
 }

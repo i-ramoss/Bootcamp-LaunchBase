@@ -24,7 +24,7 @@ nunjucks.configure('views', {
 }) 
 
 // cria a rota '/' (rota principal)
-server.get('/', (require, response) => {
+server.get('/', (request, response) => {
 
   // define um objeto para ser utilizado no frontend
   const about = {
@@ -43,17 +43,17 @@ server.get('/', (require, response) => {
 })
 
 // cria a rota '/studies'
-server.get('/studies', (require, response) => {
+server.get('/studies', (request, response) => {
 
   // retorna a renderização da rota studies e do objeto videos para o frontend
   return response.render('studies', { items: videos })
 })
 
 // cria a rota '/video' que irá redirecionar um vídeo de id específico para essa rota
-server.get('/video', (require, response) => {
+server.get('/video', (request, response) => {
 
   // busca o parâmetro id no url do site e armazena na variável id
-  const id = require.query.id
+  const id = request.query.id
 
   // função filtra um url específico
   const video = videos.find(function(video) {

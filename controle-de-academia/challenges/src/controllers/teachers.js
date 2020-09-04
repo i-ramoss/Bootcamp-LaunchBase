@@ -1,10 +1,10 @@
 // módulo do node que trabalha com arquivos do sistema
-const fs = require('fs')
-const data = require('../../data.json')
-const { age, date, graduation } = require('../utils')
+const fs = request('fs')
+const data = request('../../data.json')
+const { age, date, graduation } = request('../utils')
 
 // painel of teachers
-exports.painel = (require, response) => {
+exports.painel = (request, response) => {
 
   const newTeacher = data.teachers.map((teacher) => {
     const splitDiscipline = {
@@ -20,24 +20,24 @@ exports.painel = (require, response) => {
 
 
 // create teacher
-exports.create =  (require,response) => {
+exports.create =  (request,response) => {
   return response.render('teachers/create')
 }
 
 
 //create teacher
-exports.post = (require, response) => {
+exports.post = (request, response) => {
 
   // cria um array com o objeto da requisição
-  const keys = Object.keys(require.body)
+  const keys = Object.keys(request.body)
   
   // validação dos dados, confere se todos os dados foram preenchidos
   for (key of keys) {
-    if (require.body[key] == '')
+    if (request.body[key] == '')
       return response.send('Please, fill in all fields')
   }
 
-  let {avatar_url, name, birth, education, class_type, disciplines} = require.body
+  let {avatar_url, name, birth, education, class_type, disciplines} = request.body
 
   // transforma a string de data do formulário em milissegundos
   birth = Date.parse(birth)
@@ -74,8 +74,8 @@ exports.post = (require, response) => {
  
  
 //show teacher
-exports.show = (require, response) => {
-  const { id } = require.params
+exports.show = (request, response) => {
+  const { id } = request.params
 
   const foundTeacher = data.teachers.find(function(teacher) {
     return teacher.id == id
@@ -98,8 +98,8 @@ exports.show = (require, response) => {
 
 
 // edit teacher
-exports.edit = (require,response) => {
-  const { id } = require.params
+exports.edit = (request,response) => {
+  const { id } = request.params
 
   const foundTeacher = data.teachers.find(function(teacher) {
     return teacher.id == id
@@ -117,8 +117,8 @@ exports.edit = (require,response) => {
 
 
 // update teacher
-exports.update = (require, response) => {
-  const { id } = require.body
+exports.update = (request, response) => {
+  const { id } = request.body
   let index = 0
 
   const foundTeacher = data.teachers.find((teacher, foundIndex) => {
@@ -132,8 +132,8 @@ exports.update = (require, response) => {
 
   const teacher = {
     ...foundTeacher,
-    ...require.body,
-    birth: Date.parse(require.body.birth)
+    ...request.body,
+    birth: Date.parse(request.body.birth)
   }
 
   data.teachers[index] = teacher
@@ -147,8 +147,8 @@ exports.update = (require, response) => {
 
 
 // delete teacher
-exports.delete = (require, response) => {
-  const { id } = require.body
+exports.delete = (request, response) => {
+  const { id } = request.body
 
   // filtra e deleta o professor encontrado
   const filteredTeacher = data.teachers.filter((teacher) => {

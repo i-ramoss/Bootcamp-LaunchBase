@@ -38,18 +38,19 @@ routes.get('/students', students.painel)
 
 routes.get('/students/create', students.create)
 
-// busca um professor pelo id
+// busca um estudante pelo id
 routes.get('/students/:id', students.show)
 
-// rota de edição de um professor
+// rota de edição de um estudante
 routes.get('/students/:id/edit', students.edit)
 
 // permite o envio dos dados do formulário
 routes.post('/students', students.post)
 
-// permite a atualização dos dados de um professor
+// permite a atualização dos dados de um estudante
 routes.put('/students', students.update)
 
+// permite deletar um estudante
 routes.delete('/students', students.delete)
 
 

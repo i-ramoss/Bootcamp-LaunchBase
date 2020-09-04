@@ -28,15 +28,15 @@
 - [x] 3. Desafio 3.3 - Página de descrição de cursos
 - [x] 4. Desafio 3.4 - Refatorando Foodfy :fork_and_knife:
 
-## Módulo 4 - Controle de Academia: :construction_worker: :construction:
-- [ ] 1. Desafio 4.1 - Header
-- [ ] 2. Desafio 4.2 - Card do professor
-- [ ] 3. Desafio 4.3 - Formulário e rota de cadastro do professor
-- [ ] 4. Desafio 4.4 - Apresentação, edição e formatação dos dados de um professor
-- [ ] 5. Desafio 4.5 - HTTP: PUT e DELETE
-- [ ] 6. Desafio 4.6 - Listagem de professores
-- [ ] 7. Desafio 4.7 - Estruturando estudantes
-- [ ] 8. Desafio 4.8 - Admin Foodfy
+## Módulo 4 - Controle de Academia: :heavy_check_mark:
+- [x] 1. Desafio 4.1 - Header
+- [x] 2. Desafio 4.2 - Card do professor
+- [x] 3. Desafio 4.3 - Formulário e rota de cadastro do professor
+- [x] 4. Desafio 4.4 - Apresentação, edição e formatação dos dados de um professor
+- [x] 5. Desafio 4.5 - HTTP: PUT e DELETE
+- [x] 6. Desafio 4.6 - Listagem de professores
+- [x] 7. Desafio 4.7 - Estruturando estudantes
+- [x] 8. Desafio 4.8 - Admin Foodfy
 
 ## Módulo 5 - Persistindo dados da aplicação: :construction_worker: :construction:
 - [ ] 1. Desafio 5.1 - Refatorando aplicação e configurando o BD
@@ -44,6 +44,12 @@
 - [ ] 3. Desafio 5.3 - Relacionamentos e filtros no BD
 - [ ] 4. Desafio 5.4 - Paginação de resultados no BD
 - [ ] 5. Desafio 5.5 - Persistindo dados do Foodfy
+
+## Módulo 6 - E-commerce Launchstore: :construction_worker: :construction:
+- [ ] Desafio 6 - Mini desafios
+
+## Módulo 7 - Upload de Imagens: :construction_worker: :construction:
+- [ ] Desafio 7 - Foodfy: envio de imagens 
 
  
 

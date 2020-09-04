@@ -17,7 +17,7 @@ nunjucks.configure('views', {
 })
 
 
-server.get('/', (require, response) => { 
+server.get('/', (request, response) => { 
   const about = {
     name: 'Rocketseat',
     avatar_url: 'https://avatars1.githubusercontent.com/u/28929274?s=280&v=4',
@@ -30,12 +30,12 @@ server.get('/', (require, response) => {
   return response.render('about', { about })
 })
 
-server.get('/courses', (require, response) => {
+server.get('/courses', (request, response) => {
   return response.render('courses', { items: courses })
 })
 
-server.get('/courses/:id', (require, response) => {
-  const id = require.params.id 
+server.get('/courses/:id', (request, response) => {
+  const id = request.params.id 
 
   const course = courses.find((course) => {
     return course.id == id
@@ -50,7 +50,7 @@ server.get('/courses/:id', (require, response) => {
 })
 
 // Página não encontrada
-server.use(function(require, response) {
+server.use(function(request, response) {
   const error = { name: 'Página não encontrada'}
 
   response.status(404).render('not-found', { error })
