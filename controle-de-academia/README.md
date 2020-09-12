@@ -23,10 +23,10 @@
 
 ## :pushpin: Sobre:
 
-Este módulo foi muito abrangente com uma imensidade de conceitos e conteúdos novos.<br>
+Este módulo foi muito abrangente com uma imensidade de conceitos e conteúdos novos. <br>
 Foi apresentado inicialmente a utilização das middlewares em um servidor, um aprofundamento em propriedades do CSS como: sombra, transição, hover e animações.
-Utilização das ferramentas browser-sync e npm-run-all para atualização dos dados e start no servidor.<br>
-Formulários HTML foram utilizados para criação, edição e exclusão de dados. Sendo assim houve um maior estudo sobre métodos HTTP e utilização da dependência method-override para sobrescrever o método POST padrão para PUT ou DELETE do formulário.<br>
+Utilização das ferramentas browser-sync e npm-run-all para atualização dos dados e start no servidor. <br>
+Formulários HTML foram utilizados para criação, edição e exclusão de dados. Sendo assim houve um maior estudo sobre métodos HTTP e utilização da dependência method-override para sobrescrever o método POST padrão para PUT ou DELETE do formulário. <br>
 Utilização de API através do objeto Intl e do constructor DateTimeFormat para formatação de datas e da API fs do Node para interação com o sistema de arquivos, de tal forma que os dados da aplicação foram salvos, através dessa API num arquivo JSON.
 
 
