@@ -1,7 +1,7 @@
 // módulo do node que trabalha com arquivos do sistema
-const fs = request('fs')
-const data = request('../../data.json')
-const { date, grade } = request('../utils')
+const fs = require('fs')
+const data = require('../../data.json')
+const { date, grade } = require('../utils')
 
 
 // painel of students

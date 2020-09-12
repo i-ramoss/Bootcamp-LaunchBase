@@ -27,10 +27,10 @@
     {
       "id": 1,
       "avatar_url": "https://images.unsplash.com/photo-1575859692131-8f9a3e753005?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-      "name": "Flora Ramos",
+      "name": "Flora Reis",
       "birth": 813715200000,
       "gender": "F",
-      "services": "crossfit, bodybuilder, swimming, dancing",
+      "services": "crossfit, bodybuilder, swimming",
       "created_at": 1595365034154
     },
     {
@@ -39,7 +39,7 @@
       "avatar_url": "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
       "birth": 1577836800000,
       "gender": "F",
-      "services": "body builder, swimming ",
+      "services": "body builder, swimming",
       "created_at": 1595365104831
     }
   ]

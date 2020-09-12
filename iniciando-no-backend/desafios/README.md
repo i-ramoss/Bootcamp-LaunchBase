@@ -66,6 +66,7 @@ server.use(function(req, res) {
 Você tem liberdade para escolher a estilização que preferir para esse desafio.
 
 
+
 <h2 align="center">Desafio 3-2: Arquivos nunjucks e dados dinâmicos</h2>
 
 ## :rocket: Sobre o desafio
@@ -109,6 +110,7 @@ https://skylab.rocketseat.com.br/h/forum/launchbase/07c66e6d-06ff-4cfb-baf2-b5b2
 ### Estilização
 
 Você tem liberdade para escolher a estilização que preferir para esse desafio.
+
 
 
 <h2 align="center">Desafio: Refatorando Foodfy</h2>
