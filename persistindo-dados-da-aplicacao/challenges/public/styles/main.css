@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+:root {
+  --primary-color: #7159c1;
+}
+
+* {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: Roboto, sans-serif;
+  list-style: none;
+}
+
+body {
+  background-color:rgba(0, 0, 0, 0.7);
+}
+
+header {
+  background: black;
+  padding: 32px;
+  width: 100%;
+  text-align: center;
+}
+
+.links {
+  font-size: 20px;
+}
+
+.links a {
+  color: white;
+  position: relative;
+}
+.links a+a {
+  margin-left: 30px;
+}
+.links a.active {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+.links a.active::after {
+  background-color: white;
+}
+.links a::after {
+  content: '';
+  width: 0;
+  height: 1px;
+  background-color: var(--primary-color);
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+}
+.links a:hover::after { 
+  width: 100%;
+  transition: width 300ms ease-out;
+}
+
+/* === CARD === */
+
+.card {
+  display: grid;
+  grid-template-columns: 40% 60%;
+
+  width: 800px;
+  min-height: 400px;
+  margin: 45px auto;
+  background-color: white;
+  border-radius: 20px;
+
+  box-shadow: 10px 15px 6px -2px rgba(0, 0, 0, 0.5);
+
+  animation: up 800ms ease-out;
+}
+
+@keyframes up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* card-image */
+
+.image {
+  background: url('https://image.flaticon.com/icons/svg/1077/1077114.svg') no-repeat center center;
+  background-size: 200px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+/* card-details */
+
+.details {
+  padding: 32px
+}
+
+.item {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 16px 0;
+}
+
+li:first-child { 
+  border: none;
+}
+
+.details h3,
+.item div:nth-child(1) {
+  color: #777;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 24px;
+  letter-spacing: 0.6px;
+}
+
+.item div:nth-child(2) {
+  color: #555;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.details h3 {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.item span {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 16px;
+  background-color: var(--primary-color);
+  color: #333;
+  margin: 8px 0 0 4px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+/* form */
+
+input, select {
+  width: 100%;
+  outline: none;
+  color: #555;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+input[type='radio'] {
+  width: initial;
+  margin-right: 8px;
+}
+
+input::placeholder {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+button[type='submit'],
+a.button {
+  padding: 8px 32px;
+  color: black;
+  font-size: 16px;
+  background-color: var(--primary-color);
+  border-radius: 20px;
+  width: 80%;
+  margin: 28px auto 0;
+  cursor: pointer;
+}
+
+a.button {
+  display: inline-block;
+  text-align: center;
+}
+
+#form-delete button[type='submit'] {
+  margin-top: 15px;
+  background-color: tomato;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button .save,
+.button .delete {
+  width: 40%;
+}
+
+.button .delete {
+  background-color: tomato;
+}
+
+.button button+button {
+  margin-left: 8px;
+}
+

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {% block head %}
+    <title>Private Lessions</title>
+  {% endblock %}
+
+    <link rel="icon" href="/assets/school-white-18dp.svg" type="image/x-icon"/>
+    <link rel="stylesheet" href="/styles/main.css">
+
+  </head>
+
+  <body>    
+
+    <header>
+      <div class="links">
+        <a href="/teachers">Teachers</a>
+        <a href="/students">Students</a>
+      </div> 
+    </header>
+
+  {% block content %}{% endblock %}
+
+  <script src="../../scripts/scripts.js"></script>
+  
+  </body>
+
+</html>

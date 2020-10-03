@@ -1,0 +1,41 @@
+{% extends 'layout.njk' %}
+
+{% block head %}
+  <title>Painel - Private Lessions</title>
+
+  <link rel="stylesheet" href="/styles/index.css">
+{% endblock head %}
+
+{% block content %}
+
+<div class='card table-container'>
+  <a href="teachers/create">New</a>
+  <table width='100%'>
+
+    <thead>
+      <tr>
+        <th>Full name:</th>
+        <th>Disciplines:</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for teacher in teachers %}
+        <tr>
+          <td>
+            <span style='background-image: url({{ teacher.avatar_url }})'></span>
+            {{ teacher.name }}
+          </td>
+          <td>
+            {% for discipline in teacher.disciplines %}
+              <span>{{ discipline }}</span>
+            {% endfor %}
+          </td>
+          <td><a href="/teachers/{{teacher.id}}">Open</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock content %}

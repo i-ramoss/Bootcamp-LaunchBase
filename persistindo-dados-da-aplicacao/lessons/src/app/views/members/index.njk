@@ -1,0 +1,40 @@
+{% extends 'layout.njk' %}
+
+{% block head %}
+    <link rel="stylesheet" href="/styles/index.css">
+{% endblock %}
+
+{% block content %}
+
+  <div class='card table-container'>
+    <a href="/members/create">New</a>
+    <table width='100%'>
+
+      <thead>
+        <tr>
+          <th>Member</th>
+          <th>Email</th>
+          <th>Height</th>
+          <th>Weight</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for member in members%}
+        <tr>
+          <td>
+            <span style="background-image: url({{ member.avatar_url }})"></span>
+            {{ member.name }}
+          </td>
+          <td>{{ member.email }}</td>
+          <td>{{ member.height }}kg</td>
+          <td>{{ member.weight }}cm</td>
+          <td><a href="/members/{{ member.id }}">Open</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+{% endblock content %}
