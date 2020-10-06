@@ -1,8 +1,11 @@
+const Instructor = require("../../models/Instructor")
 const { age, date } = require ('../lib/utils')
 
 module.exports = {
   index(request, response){
-    return response.render('instructors/index')
+    Instructor.all( instructors => {
+      return response.render('instructors/index', { instructors })
+    })
   },
 
   create(request, response){
@@ -17,17 +20,31 @@ module.exports = {
         return response.send('Please, fill all fields!')
     }
 
-    let {avatar_url, name, birth, gender, services} = request.body
-
-    return
+    Instructor.create(request.body, instructor => {
+      return response.redirect(`/instructors/${instructor.id}`)
+    })
   },
 
   show(request, response){
-    return
+    Instructor.find(request.params.id, instructor => {
+      if(!instructor) return response.json({error: "Instructor not found!"})
+
+      instructor.age = age(instructor.birth)
+      instructor.services = instructor.services.split(",")
+      instructor.created_at = date(instructor.created_at).format
+
+      return response.render("instructors/show", { instructor })
+    })
   },
 
   edit(request, response){
-    return
+    Instructor.find(request.params.id, instructor => {
+      if(!instructor) return response.json({error: "Instructor not found!"})
+
+      instructor.birth = date(instructor.birth).iso
+
+      return response.render("instructors/edit", { instructor })
+    })
   },
 
   put(request, response){
@@ -38,12 +55,14 @@ module.exports = {
         return response.send('Please, fill all fields!')
     }
 
-    let {avatar_url, name, birth, gender, services} = request.body
-
-    return
+    Instructor.update(request.body, () => {
+      return response.redirect(`instructors/${request.body.id}`)
+    })
   },
   
   delete(request, response){
-    return
+    Instructor.delete(request.body.id, () => {
+      return response.redirect("/instructors")
+    })
   }
 }
