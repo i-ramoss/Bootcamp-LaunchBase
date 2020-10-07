@@ -4,6 +4,18 @@ const { date, grade } = require("../lib/utils")
 
 module.exports = {
   painel(request, response) {
+    Student.all( students => {
+      const newStudent = students.map(student => {
+        const formatSchoolYear = {
+          ...student,
+          school_year: grade(student.school_year)
+        }
+
+        return formatSchoolYear
+      })
+
+      return response.render("students/index", { students: newStudent })
+    })
   },
 
   create(request, response) { 
@@ -18,17 +30,30 @@ module.exports = {
         return response.send('Please, fill in all fields')
     }
 
-    let {avatar_url, name, birth, education, class_type, disciplines} = request.body
-
-    return
+    Student.create(request.body, student => {
+      return response.redirect(`/students/${student.id}`)
+    })
   },
 
   show(request, response) {
-    return
+    Student.find(request.params.id, student => {
+      if(!student) return response.json({error: "Student not found!"})
+
+      student.age = date(student.birth_date).birthDay
+      student.school_year = grade(student.school_year)
+
+      return response.render("students/show", { student })
+    })
   },
 
   edit(request, response) {
-    return
+    Student.find(request.params.id, student => {
+      if(!student) return response.json({error: "Student not found!"})
+
+      student.birth_date = date(student.birth_date).iso
+
+      return response.render("students/edit", { student })
+    })
   },
 
   update(request, response) {
@@ -39,12 +64,14 @@ module.exports = {
         return response.send('Please, fill in all fields')
     }
 
-    let {avatar_url, name, birth, education, class_type, disciplines} = request.body
-
-    return
+    Student.update(request.body, () => {
+      return response.redirect(`students/${request.body.id}`)
+    })
   },
 
   delete(request, response) {
-    return
+    Student.delete(request.body.id, () => {
+      return response.redirect("/students")
+    })
   }
 }

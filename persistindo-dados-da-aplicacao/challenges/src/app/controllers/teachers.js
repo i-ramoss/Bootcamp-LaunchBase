@@ -33,8 +33,6 @@ module.exports = {
     Teacher.create(request.body, teacher => {
       return response.redirect(`/teachers/${teacher.id}`)
     })
-
-    return
   },
 
   show(request, response) {
