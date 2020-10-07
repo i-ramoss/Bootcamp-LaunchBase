@@ -23,14 +23,14 @@
   <li class="item">
     <div>Date of birth:</div>
     <div>
-      <input type='date' name='birth' value='{{ student.birth }}'>
+      <input type='date' name='birth_date' value='{{ student.birth_date }}'>
     </div>
   </li>
 
   <li class="item">
     <div>School year:</div>
     <div>
-      <select name='education' required>
+      <select name='school_year' required>
         <option value="" disabled selected>Selected</option>
         <option value='5th' {% if student.education == '5th'%} selected {% endif %}>5th year of elementary school</option>
         <option value='6th' {% if student.education == '6th'%} selected {% endif %}>6th year of elementary school</option>

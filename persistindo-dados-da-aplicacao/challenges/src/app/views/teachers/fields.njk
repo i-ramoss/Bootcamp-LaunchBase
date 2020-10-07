@@ -16,14 +16,14 @@
   <li class="item">
     <div>Date of birth:</div>
     <div>
-      <input type='date' name='birth' value='{{ teacher.birth }}'>
+      <input type='date' name='birth_date' value='{{ teacher.birth_date }}'>
     </div>
   </li>
 
   <li class="item">
     <div>Educational level:</div>
     <div>
-      <select name='education' required>
+      <select name='education_level' required>
         <option value="" disabled selected>Select</option>
         <option value='high_school'>Complete High School</option>
         <option value='higher_education'>Complete Higher Education</option>
@@ -50,7 +50,7 @@
   <li class="item">
     <div>University taught:</div>
     <div>
-      <input type='text' name='disciplines' placeholder='Separate the disciplines provided by a comma' value='{{ teacher.disciplines }}'>
+      <input type='text' name='subjects_taught' placeholder='Separate the disciplines provided by a comma' value='{{ teacher.subjects_taught }}'>
     </div>
   </li>
 </ul>

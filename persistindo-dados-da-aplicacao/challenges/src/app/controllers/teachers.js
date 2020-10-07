@@ -1,8 +1,21 @@
-const { age, date, graduation } = require('../lib/utils')
+const Teacher = require("../../models/Teacher")
+const { age, date, graduation  } = require("../lib/utils")
+
 
 module.exports = {
   painel(request, response) {
-    return response.render('teachers/index')
+    Teacher.all( teachers => {
+      const newTeacher = teachers.map(teacher => {
+        const splitDiscipline = {
+          ...teacher,
+          disciplines: teacher.subjects_taught.split(",")
+        }
+
+        return splitDiscipline
+      })
+
+      return response.render('teachers/index', { teachers: newTeacher })
+    })
   },
 
   create(request, response) { 
@@ -14,20 +27,37 @@ module.exports = {
   
     for (key of keys) {
       if (request.body[key] == '')
-        return response.send('Please, fill in all fields')
+        return response.json({err: "Please, fill in all fields"})
     }
 
-    let {avatar_url, name, birth, education, class_type, disciplines} = request.body
+    Teacher.create(request.body, teacher => {
+      return response.redirect(`/teachers/${teacher.id}`)
+    })
 
     return
   },
 
   show(request, response) {
-    return
+    Teacher.find(request.params.id, teacher => {
+      if(!teacher) return response.json({error: "Teacher not found!"})
+
+      teacher.age = age(teacher.birth_date)
+      teacher.education_level = graduation(teacher.education_level)
+      teacher.disciplines = teacher.subjects_taught.split(",")
+      teacher.created_at = date(teacher.created_at).format
+
+      return response.render("teachers/show", { teacher })
+    })
   },
 
   edit(request, response) {
-    return
+    Teacher.find(request.params.id, teacher => {
+      if(!teacher) return response.json({error: "Teacher not found!"})
+
+      teacher.birth_date = date(teacher.birth_date).iso
+  
+      return response.render("teachers/edit", { teacher })
+    })
   },
 
   update(request, response) {
@@ -38,12 +68,14 @@ module.exports = {
         return response.send('Please, fill in all fields')
     }
 
-    let {avatar_url, name, birth, education, class_type, disciplines} = request.body
-
-    return
+    Teacher.update(request.body, () => {
+      return response.redirect(`teachers/${request.body.id}`)
+    })
   },
 
   delete(request, response) {
-    return
+    Teacher.delete(request.body.id, () => {
+      return response.redirect("/teachers")
+    })
   }
 }

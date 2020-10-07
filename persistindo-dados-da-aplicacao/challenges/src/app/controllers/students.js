@@ -1,8 +1,9 @@
-const { date, grade } = require('../lib/utils')
+const Student = require("../../models/Student")
+const { date, grade } = require("../lib/utils")
+
 
 module.exports = {
   painel(request, response) {
-    return response.render('students/index')
   },
 
   create(request, response) { 
