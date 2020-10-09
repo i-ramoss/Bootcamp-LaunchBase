@@ -32,13 +32,13 @@
     <div>
       <select name='school_year' required>
         <option value="" disabled selected>Selected</option>
-        <option value='5th' {% if student.education == '5th'%} selected {% endif %}>5th year of elementary school</option>
-        <option value='6th' {% if student.education == '6th'%} selected {% endif %}>6th year of elementary school</option>
-        <option value='7th' {% if student.education == '7th'%} selected {% endif %}>7th year of elementary school</option>
-        <option value='8th' {% if student.education == '8th'%} selected {% endif %}>8th year of elementary school</option>
-        <option value='1st' {% if student.education == '1st'%} selected {% endif %}>1st year of high school</option>
-        <option value='2nd' {% if student.education == '2nd'%} selected {% endif %}>2nd year of high school</option>
-        <option value='3rd' {% if student.education == '3rd'%} selected {% endif %}>3rd year of high school</option>
+        <option value='5th' {% if student.school_year == '5th'%} selected {% endif %}>5th year of elementary school</option>
+        <option value='6th' {% if student.school_year == '6th'%} selected {% endif %}>6th year of elementary school</option>
+        <option value='7th' {% if student.school_year == '7th'%} selected {% endif %}>7th year of elementary school</option>
+        <option value='8th' {% if student.school_year == '8th'%} selected {% endif %}>8th year of elementary school</option>
+        <option value='1st' {% if student.school_year == '1st'%} selected {% endif %}>1st year of high school</option>
+        <option value='2nd' {% if student.school_year == '2nd'%} selected {% endif %}>2nd year of high school</option>
+        <option value='3rd' {% if student.school_year == '3rd'%} selected {% endif %}>3rd year of high school</option>
       </select>
     </div>
   </li>
@@ -47,6 +47,18 @@
     <div>Weekly workload: (h)</div>
     <div>
       <input type="number" name='weekly' placeholder='Desired weekly workload:' value='{{ student.weekly }}'>
+    </div>
+  </li>
+
+<li class="item">
+    <div>Teacher:</div>
+    <div>
+      <select name='teacher' required>
+        <option value="" disabled selected>Selected</option>
+        {% for teacher in teacherOptions %}
+          <option value="{{ teacher.id }}" {% if student.teacher_id ==  teacher.id %} selected {% endif %}>{{ teacher.name }}</option>
+        {% endfor %}
+      </select>
     </div>
   </li>
 </ul>

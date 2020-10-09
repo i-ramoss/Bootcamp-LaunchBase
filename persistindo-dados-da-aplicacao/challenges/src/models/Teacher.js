@@ -6,9 +6,11 @@ module.exports = {
 
   all(callback) {
     db.query(`
-    SELECT *
+    SELECT teachers.*, count(students) AS total_students
     FROM teachers
-    ORDER BY name ASC`, (err, results) => {
+    LEFT JOIN students ON (students.teacher_id = teachers.id)
+    GROUP BY teachers.id
+    ORDER BY total_students DESC`, (err, results) => {
       if (err) throw `Show Error! ${err}`
 
       callback(results.rows)
@@ -56,6 +58,21 @@ module.exports = {
       })
   },
 
+  findBy(filter, callback) {
+    db.query(`
+    SELECT teachers.*, count(students) AS total_students
+    FROM teachers
+    LEFT JOIN students ON (students.teacher_id = teachers.id)
+    WHERE teachers.name ILIKE '%${filter}%'
+    OR teachers.subjects_taught ILIKE '%${filter}%'
+    GROUP BY teachers.id
+    ORDER BY total_students DESC`, (err, results) => {
+      if (err) throw `Show Error! ${err}`
+
+      callback(results.rows)
+    })
+  },
+
   update(data, callback) {
     const query = `
       UPDATE teachers SET
@@ -90,5 +107,5 @@ module.exports = {
 
       return callback()
     })
-  }
+  }  
 }

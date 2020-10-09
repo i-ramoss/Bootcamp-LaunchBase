@@ -39,9 +39,9 @@
 - [x] 8. Desafio 4.8 - Admin Foodfy :fork_and_knife:
 
 ## Módulo 5 - Persistindo dados da aplicação: :construction_worker: :construction:
-- [ ] 1. Desafio 5.1 - Refatorando aplicação e configurando o BD
-- [ ] 2. Desafio 5.2 - Interagindo com o BD
-- [ ] 3. Desafio 5.3 - Relacionamentos e filtros no BD
+- [x] 1. Desafio 5.1 - Refatorando aplicação e configurando o BD
+- [x] 2. Desafio 5.2 - Interagindo com o BD
+- [x] 3. Desafio 5.3 - Relacionamentos e filtros no BD
 - [ ] 4. Desafio 5.4 - Paginação de resultados no BD
 - [ ] 5. Desafio 5.5 - Persistindo dados do Foodfy
 

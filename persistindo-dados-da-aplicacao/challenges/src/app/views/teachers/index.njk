@@ -9,13 +9,22 @@
 {% block content %}
 
 <div class='card table-container'>
-  <a href="teachers/create">New</a>
+  <div class="header">
+    <a class="button" href="teachers/create">New</a>
+
+    <form action="/teachers" method="get">
+      <input type="text" name="filter" value="{{ filter }}"placeholder="Filter by name or discipline">
+      <button type="submit">Filter</button>
+    </form>
+  </div>
+
   <table width='100%'>
 
     <thead>
       <tr>
         <th>Full name:</th>
         <th>Disciplines:</th>
+        <th>Students:</th>
         <th>Edit</th>
       </tr>
     </thead>
@@ -32,6 +41,7 @@
               <span>{{ discipline }}</span>
             {% endfor %}
           </td>
+          <td>{{teacher.total_students}}</td>
           <td><a href="/teachers/{{teacher.id}}">Open</a></td>
         </tr>
       {% endfor %}

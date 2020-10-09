@@ -4,18 +4,36 @@ const { age, date, graduation  } = require("../lib/utils")
 
 module.exports = {
   painel(request, response) {
-    Teacher.all( teachers => {
-      const newTeacher = teachers.map(teacher => {
-        const splitDiscipline = {
-          ...teacher,
-          disciplines: teacher.subjects_taught.split(",")
-        }
+    const { filter } = request.query
 
-        return splitDiscipline
+    if(filter) {
+      Teacher.findBy(filter, teachers => {
+        const newTeacher = teachers.map(teacher => {
+          const splitDiscipline = {
+            ...teacher,
+            disciplines: teacher.subjects_taught.split(",")
+          }
+  
+          return splitDiscipline
+        })
+  
+        return response.render('teachers/index', { teachers: newTeacher, filter })
       })
 
-      return response.render('teachers/index', { teachers: newTeacher })
-    })
+    } else {
+      Teacher.all( teachers => {
+        const newTeacher = teachers.map(teacher => {
+          const splitDiscipline = {
+            ...teacher,
+            disciplines: teacher.subjects_taught.split(",")
+          }
+  
+          return splitDiscipline
+        })
+  
+        return response.render('teachers/index', { teachers: newTeacher })
+      })
+    } 
   },
 
   create(request, response) { 

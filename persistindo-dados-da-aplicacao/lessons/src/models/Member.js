@@ -4,7 +4,8 @@ const { date, blood_type } = require ('../app/lib/utils')
 module.exports = {
 
   all(callback) {
-    db.query(`SELECT * 
+    db.query(`
+    SELECT * 
     FROM members
     ORDER BY name ASC`, (err, results) => {
       if (err) throw `Database Error! ${err}`

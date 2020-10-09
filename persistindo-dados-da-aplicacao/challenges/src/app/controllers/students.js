@@ -19,7 +19,9 @@ module.exports = {
   },
 
   create(request, response) { 
-    return response.render('students/create') 
+    Student.teacherSelectOptions( options => {
+      return response.render('students/create', { teacherOptions: options }) 
+    })
   },
 
   post(request, response) {
@@ -27,7 +29,7 @@ module.exports = {
   
     for (key of keys) {
       if (request.body[key] == '')
-        return response.send('Please, fill in all fields')
+        return response.json({error: "Please, fill in all fields"})
     }
 
     Student.create(request.body, student => {
@@ -52,7 +54,9 @@ module.exports = {
 
       student.birth_date = date(student.birth_date).iso
 
-      return response.render("students/edit", { student })
+      Student.teacherSelectOptions( options => {
+        return response.render('students/edit', { student, teacherOptions: options }) 
+      })
     })
   },
 
@@ -61,7 +65,7 @@ module.exports = {
   
     for (key of keys) {
       if (request.body[key] == '')
-        return response.send('Please, fill in all fields')
+        return response.json({error: "Please, fill in all fields"})
     }
 
     Student.update(request.body, () => {
