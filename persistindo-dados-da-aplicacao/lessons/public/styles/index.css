@@ -64,3 +64,35 @@ th:last-child,
 td:last-child {
   text-align: center;
 }
+
+/* Filter */
+.table-container .header {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.table-container .header a {
+  margin: 0;
+  width: 120px;
+}
+
+.table-container .header form {
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  align-items: center;
+}
+
+.table-container .header input {
+  border: 1px solid #eee;
+  border-top-right-radius: -20px;
+  border-bottom-right-radius: -20px;
+  padding: 6px 8px;
+}  
+
+.table-container .header form button {
+  margin: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}

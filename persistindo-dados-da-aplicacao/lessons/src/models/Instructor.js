@@ -5,9 +5,11 @@ module.exports = {
 
   all(callback) {
     db.query(`
-    SELECT * 
-    FROM instructors 
-    ORDER BY name ASC`, (err, results) => {
+    SELECT instructors.*, count(members) AS total_students
+    FROM instructors
+    LEFT JOIN members ON (members.instructor_id = instructors.id)
+    GROUP BY instructors.id 
+    ORDER BY total_students DESC`, (err, results) => {
       if (err) throw `Show Error! ${err}`
 
       callback(results.rows)
@@ -50,6 +52,21 @@ module.exports = {
       if(err) throw `Find Error! ${err}`
 
       callback(results.rows[0])
+    })
+  },
+
+  findBy(filter, callback) {
+    db.query(`
+    SELECT instructors.*, count(members) AS total_students
+    FROM instructors
+    LEFT JOIN members ON (members.instructor_id = instructors.id)
+    WHERE instructors.name ILIKE '%${filter}%'
+    OR instructors.services ILIKE '%${filter}%'
+    GROUP BY instructors.id 
+    ORDER BY total_students DESC`, (err, results) => {
+      if (err) throw `Show Error! ${err}`
+
+      callback(results.rows)
     })
   },
 

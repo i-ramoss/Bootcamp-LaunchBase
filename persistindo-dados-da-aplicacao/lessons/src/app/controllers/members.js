@@ -9,7 +9,9 @@ module.exports = {
   },
 
   create(request, response){
-    return response.render('members/create')
+    Member.instructorsSelectOptions( options => {
+      return response.render('members/create', { instructorOptions: options })
+    })
   },
 
   post(request, response){
@@ -42,7 +44,9 @@ module.exports = {
 
       member.birth = date(member.birth).iso
 
-      return response.render("members/edit", { member })
+      Member.instructorsSelectOptions( options => {
+        return response.render('members/edit', { member, instructorOptions: options })
+      })
     })
   },
 

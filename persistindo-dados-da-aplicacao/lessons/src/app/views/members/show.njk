@@ -45,6 +45,11 @@
         <div>Height: (cm)</div>
         <div>{{ member.height }}</div>
       </div>
+
+      <div class="item">
+        <div>Student of:</div>
+        <div>{{ member.instructor_name }}</div>
+      </div>
       
       <a href="/members/{{ member.id }}/edit" class="button">Edit</a>
         

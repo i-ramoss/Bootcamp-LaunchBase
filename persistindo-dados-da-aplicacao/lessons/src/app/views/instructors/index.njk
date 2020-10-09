@@ -2,17 +2,28 @@
 
 {% block head %}
     <link rel="stylesheet" href="/styles/index.css">
+    <title>Gym Manager</title>
 {% endblock %}
 
 {% block content %}
   <div class='card table-container'>
-    <a href="/instructors/create">New</a>
+
+    <div class="header">
+      <a class="button" href="/instructors/create">New</a>
+
+      <form action="/instructors" method="get">
+        <input type="text" name="filter" value="{{ filter }}" placeholder="Name or service">
+        <button type="submit">Filter</button>
+      </form>
+    </div>
+
     <table width='100%'>
 
       <thead>
         <tr>
           <th>Instructor</th>
           <th>Service</th>
+          <th>Students</th>
           <th>Edit</th>
         </tr>
       </thead>
@@ -25,6 +36,7 @@
             {{ instructor.name }}
           </td>
           <td>{{ instructor.services }}</td>
+          <td>{{ instructor.total_students }}</td>
           <td><a href="/instructors/{{ instructor.id }}">Open</a></td>
         </tr>
         {% endfor %}
