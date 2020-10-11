@@ -3,18 +3,29 @@ const { age, date } = require ('../lib/utils')
 
 module.exports = {
   index(request, response){
-    const { filter } = request.query
+    let { filter, page, limit } = request.query
 
-    if (filter) {
-      Instructor.findBy(filter, instructors => {
-        return response.render('instructors/index', { instructors, filter })
-      })
+    page = page || 1
+    limit = limit || 2
+    let offset = limit * (page - 1)
 
-    } else {
-        Instructor.all( instructors => {
-          return response.render('instructors/index', { instructors })
-        })
+    const params = {
+      filter,
+      page,
+      limit,
+      offset,
+      callback(instructors) {
+        const pagination = {
+          total: Math.ceil(instructors[0].total / limit),
+          page
+        }
+
+        return response.render('instructors/index', { instructors, pagination, filter })
+      }
     }
+
+    Instructor.paginate(params)
+
   },
 
   create(request, response){
