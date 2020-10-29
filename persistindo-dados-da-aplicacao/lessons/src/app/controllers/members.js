@@ -3,9 +3,19 @@ const { date, blood_type } = require ('../lib/utils')
 
 module.exports = {
   index(request, response){
-    Member.all( members => {
-      return response.render('members/index', { members })
-    })
+    const { filter } = request.query
+
+    if (filter) {
+      Member.findBy(filter, members => {
+        return response.render('members/index', { members, filter })
+      })
+    } 
+
+    else {
+      Member.all( members => {
+        return response.render('members/index', { members })
+      })
+    }   
   },
 
   create(request, response){
