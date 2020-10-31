@@ -3,19 +3,30 @@ const { date, blood_type } = require ('../lib/utils')
 
 module.exports = {
   index(request, response){
-    const { filter } = request.query
+    let { filter, page, limit } = request.query
 
-    if (filter) {
-      Member.findBy(filter, members => {
-        return response.render('members/index', { members, filter })
-      })
-    } 
+    page = page || 1
+    limit = limit || 2
+    let offset = limit * (page - 1)
 
-    else {
-      Member.all( members => {
-        return response.render('members/index', { members })
-      })
-    }   
+    const params = {
+      filter,
+      page,
+      limit,
+      offset,
+      callback(members) {
+        if (members == "") return response.redirect("/members")
+
+        const pagination = {
+          total: Math.ceil(members[0].total / limit),
+          page
+        }
+
+        return response.render('members/index', { members, pagination, filter })
+      }
+    }
+
+    Member.paginate(params) 
   },
 
   create(request, response){

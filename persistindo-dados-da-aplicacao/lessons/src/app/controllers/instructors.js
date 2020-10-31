@@ -15,6 +15,8 @@ module.exports = {
       limit,
       offset,
       callback(instructors) {
+        if (instructors == "") return response.redirect("/instructors")
+
         const pagination = {
           total: Math.ceil(instructors[0].total / limit),
           page
@@ -25,7 +27,6 @@ module.exports = {
     }
 
     Instructor.paginate(params)
-
   },
 
   create(request, response){

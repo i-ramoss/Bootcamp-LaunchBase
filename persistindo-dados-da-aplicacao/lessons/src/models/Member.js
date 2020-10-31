@@ -1,5 +1,5 @@
 const db = require("../config/db")
-const { date, blood_type } = require ('../app/lib/utils')
+const { date } = require ('../app/lib/utils')
 
 module.exports = {
 
@@ -67,7 +67,7 @@ module.exports = {
     FROM members
     WHERE members.name ILIKE '%${filter}%'
     ORDER BY name ASC`, (err, results) => {
-      if (err) throw `Database Error! ${err}`
+      if (err) throw `Filter Error! ${err}`
 
       callback(results.rows)
     })
@@ -122,5 +122,39 @@ module.exports = {
 
         callback(results.rows)
       })
+  },
+
+  paginate(params) {
+    const { filter, limit, offset, callback } = params
+
+    let query = "", 
+        filterQuery = "", 
+        totalQuery = `(
+          SELECT count(*) FROM members
+        ) AS total`
+
+    if ( filter ) {
+      filterQuery = `
+      WHERE members.name ILIKE '%${filter}%'
+      OR members.email ILIKE '%${filter}%'
+      `
+      totalQuery = `(
+        SELECT count(*) FROM members
+        ${filterQuery}
+      ) AS total`
+    }
+
+    query = `
+    SELECT members.*, ${totalQuery}
+    FROM members
+    ${filterQuery}
+    LIMIT $1 OFFSET $2
+    `
+
+    db.query(query, [limit, offset], (err, results) => {
+      if(err) throw `Paginate Error! ${err}`
+
+      callback(results.rows)
+    })
   }
 }

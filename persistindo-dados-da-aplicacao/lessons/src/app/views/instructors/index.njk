@@ -1,4 +1,4 @@
-{% extends 'layout.njk' %}
+{% extends "layout.njk" %}
 
 {% block head %}
     <link rel="stylesheet" href="/styles/index.css">
@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-  <div class='card table-container'>
+  <div class="card table-container">
 
     <div class="header">
       <a class="button" href="/instructors/create">New</a>
@@ -17,7 +17,7 @@
       </form>
     </div>
 
-    <table width='100%'>
+    <table width="100%">
 
       <thead>
         <tr>
@@ -43,7 +43,12 @@
       </tbody>
     </table>
 
-    <div class="pagination" data-page={{pagination.page}} data-total={{pagination.total}}></div>
-  </div>
+    <div 
+    class="pagination"
+    data-page={{pagination.page}} 
+    data-total={{pagination.total}}
+    data-filter={{pagination.filter}}
+    ></div>
+  </div> 
 
 {% endblock content %}
