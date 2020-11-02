@@ -1,7 +1,6 @@
 const db = require("../config/db")
 const { date  } = require('../app/lib/utils')
 
-
 module.exports = {
 
   all(callback) {
@@ -67,7 +66,7 @@ module.exports = {
     OR teachers.subjects_taught ILIKE '%${filter}%'
     GROUP BY teachers.id
     ORDER BY total_students DESC`, (err, results) => {
-      if (err) throw `Show Error! ${err}`
+      if (err) throw `Filter Error! ${err}`
 
       callback(results.rows)
     })
@@ -107,5 +106,40 @@ module.exports = {
 
       return callback()
     })
-  }  
+  },
+
+  paginate(params) {
+    const { filter, limit, offset, callback } = params
+
+    let query= "",
+        filterQuery= "",
+        totalQuery = `(
+          SELECT count(*) from teachers
+        ) AS total`
+
+    if (filter) {
+      filterQuery = `
+      WHERE teachers.name ILIKE '%${filter}%'
+      OR teachers.subjects_taught ILIKE '%${filter}%'
+      `
+      totalQuery = `(
+        SELECT count(*) FROM Teachers
+        ${filterQuery}
+      ) AS total`
+    }
+
+    query = `
+    SELECT teachers.*, ${totalQuery}, count(students) as total_students
+    FROM Teachers
+    LEFT JOIN students ON (students.teacher_id = teachers.id)
+    ${filterQuery}
+    GROUP BY teachers.id LIMIT $1 OFFSET $2
+    `
+
+    db.query(query, [limit, offset], (err, results) => {
+      if(err) throw `Paginate Error! ${err}`
+
+      callback(results.rows)
+    })
+  }
 }

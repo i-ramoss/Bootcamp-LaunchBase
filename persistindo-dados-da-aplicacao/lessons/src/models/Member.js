@@ -66,6 +66,7 @@ module.exports = {
     SELECT * 
     FROM members
     WHERE members.name ILIKE '%${filter}%'
+    OR members.email ILIKE '%${filter}%'
     ORDER BY name ASC`, (err, results) => {
       if (err) throw `Filter Error! ${err}`
 

@@ -4,18 +4,39 @@ const { date, grade } = require("../lib/utils")
 
 module.exports = {
   painel(request, response) {
-    Student.all( students => {
-      const newStudent = students.map(student => {
-        const formatSchoolYear = {
-          ...student,
-          school_year: grade(student.school_year)
+    let { filter, page, limit } = request.query
+
+    page = page || 1
+    limit = limit || 2
+    let offset = limit * (page - 1)
+
+    const params = {
+      filter,
+      page,
+      limit,
+      offset,
+      callback(students) {
+        if (students == "") return response.redirect("/students")
+
+        const newStudent = students.map(student => {
+          const formatSchoolYear = {
+            ...student,
+            school_year: grade(student.school_year)
+          }
+  
+          return formatSchoolYear
+        })
+        
+        const pagination = {
+          total: Math.ceil(students[0].total / limit),
+          page
         }
 
-        return formatSchoolYear
-      })
+        return response.render("students/index", { students: newStudent, pagination, filter })
+      }
+    }
 
-      return response.render("students/index", { students: newStudent })
-    })
+    Student.paginate(params)
   },
 
   create(request, response) { 

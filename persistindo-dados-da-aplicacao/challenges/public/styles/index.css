@@ -1,5 +1,6 @@
 .card.table-container {
-  display: block;
+  display: grid;
+  grid-template: 64px 1fr 16px / 1fr;
   padding: 40px;
 }
 
@@ -104,4 +105,29 @@ td:last-child {
   margin: 0;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+/* Pagination */
+
+.table-container .header {
+  margin: 0;
+  align-self: start;
+}
+
+.table-container .pagination {
+  margin: 0;
+  align-self: end;
+  justify-self: center;
+}
+
+.pagination a,
+.pagination span {
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-right: 16px;
+}
+
+.pagination a:hover {
+  filter: brightness(0.3);
+  border-bottom: 1px solid var(--primary-color)
 }

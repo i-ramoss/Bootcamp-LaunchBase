@@ -56,6 +56,19 @@ module.exports = {
       })
   },
 
+  findBy(filter, callback) {
+    db.query(`
+    SELECT *,
+    FROM students
+    WHERE students.name ILIKE '%${filter}%'
+    OR students.school_year ILIKE '%${filter}%'
+    ORDER BY name DESC`, (err, results) => {
+      if (err) throw `Filter Error! ${err}`
+
+      callback(results.rows)
+    })
+  },
+
   update(data, callback) {
     const query = `
       UPDATE students SET
@@ -97,6 +110,40 @@ module.exports = {
   teacherSelectOptions(callback) {
     db.query(`SELECT name, id FROM teachers`, (err, results) => {
       if(err) throw `Database Select Teacher ${err}`
+
+      callback(results.rows)
+    })
+  },
+  
+  paginate(params) {
+    const { filter, limit, offset, callback } = params
+
+    let query = "", 
+        filterQuery = "", 
+        totalQuery = `(
+          SELECT count(*) FROM students
+        ) AS total`
+
+    if ( filter ) {
+      filterQuery = `
+      WHERE students.name ILIKE '%${filter}%'
+      OR students.school_year ILIKE '%${filter}%'
+      `
+      totalQuery = `(
+        SELECT count(*) FROM students
+        ${filterQuery}
+      ) AS total`
+    }
+
+    query = `
+    SELECT students.*, ${totalQuery}
+    FROM students
+    ${filterQuery}
+    LIMIT $1 OFFSET $2
+    `
+
+    db.query(query, [limit, offset], (err, results) => {
+      if(err) throw `Paginate Error! ${err}`
 
       callback(results.rows)
     })

@@ -4,10 +4,20 @@ const { age, date, graduation  } = require("../lib/utils")
 
 module.exports = {
   painel(request, response) {
-    const { filter } = request.query
+    let { filter, page, limit } = request.query
 
-    if(filter) {
-      Teacher.findBy(filter, teachers => {
+    page = page || 1
+    limit = limit || 2
+    let offset = limit * (page-1)
+
+    const params = {
+      filter,
+      page,
+      limit,
+      offset,
+      callback(teachers) {
+        if (teachers == "") return response.redirect("/teachers")
+
         const newTeacher = teachers.map(teacher => {
           const splitDiscipline = {
             ...teacher,
@@ -16,24 +26,17 @@ module.exports = {
   
           return splitDiscipline
         })
-  
-        return response.render('teachers/index', { teachers: newTeacher, filter })
-      })
+        
+        const pagination = {
+          total: Math.ceil(teachers[0].total / limit),
+          page
+        }
 
-    } else {
-      Teacher.all( teachers => {
-        const newTeacher = teachers.map(teacher => {
-          const splitDiscipline = {
-            ...teacher,
-            disciplines: teacher.subjects_taught.split(",")
-          }
-  
-          return splitDiscipline
-        })
-  
-        return response.render('teachers/index', { teachers: newTeacher })
-      })
-    } 
+        return response.render('teachers/index', { teachers: newTeacher, pagination, filter })
+      } 
+    }
+
+    Teacher.paginate(params)
   },
 
   create(request, response) { 
