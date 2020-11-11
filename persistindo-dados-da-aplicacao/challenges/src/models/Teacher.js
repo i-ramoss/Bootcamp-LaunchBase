@@ -111,8 +111,8 @@ module.exports = {
   paginate(params) {
     const { filter, limit, offset, callback } = params
 
-    let query= "",
-        filterQuery= "",
+    let query = "",
+        filterQuery = "",
         totalQuery = `(
           SELECT count(*) from teachers
         ) AS total`
@@ -123,17 +123,18 @@ module.exports = {
       OR teachers.subjects_taught ILIKE '%${filter}%'
       `
       totalQuery = `(
-        SELECT count(*) FROM Teachers
+        SELECT count(*) FROM teachers
         ${filterQuery}
       ) AS total`
     }
 
     query = `
     SELECT teachers.*, ${totalQuery}, count(students) as total_students
-    FROM Teachers
+    FROM teachers
     LEFT JOIN students ON (students.teacher_id = teachers.id)
     ${filterQuery}
-    GROUP BY teachers.id LIMIT $1 OFFSET $2
+    GROUP BY teachers.id 
+    LIMIT $1 OFFSET $2
     `
 
     db.query(query, [limit, offset], (err, results) => {

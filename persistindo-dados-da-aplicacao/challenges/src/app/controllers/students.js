@@ -18,13 +18,8 @@ module.exports = {
       callback(students) {
         if (students == "") return response.redirect("/students")
 
-        const newStudent = students.map(student => {
-          const formatSchoolYear = {
-            ...student,
-            school_year: grade(student.school_year)
-          }
-  
-          return formatSchoolYear
+        students.map( student => {
+          return student.school_year = grade(student.school_year)
         })
         
         const pagination = {
@@ -32,7 +27,7 @@ module.exports = {
           page
         }
 
-        return response.render("students/index", { students: newStudent, pagination, filter })
+        return response.render("students/index", { students, pagination, filter })
       }
     }
 

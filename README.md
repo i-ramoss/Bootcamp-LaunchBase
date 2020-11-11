@@ -38,12 +38,12 @@
 - [x] 7. Desafio 4.7 - Estruturando estudantes
 - [x] 8. Desafio 4.8 - Admin Foodfy :fork_and_knife:
 
-## Módulo 5 - Persistindo dados da aplicação: :construction_worker: :construction:
+## Módulo 5 - Persistindo dados da aplicação: :lock: :heavy_check_mark: 
 - [x] 1. Desafio 5.1 - Refatorando aplicação e configurando o BD
 - [x] 2. Desafio 5.2 - Interagindo com o BD
 - [x] 3. Desafio 5.3 - Relacionamentos e filtros no BD
-- [ ] 4. Desafio 5.4 - Paginação de resultados no BD
-- [ ] 5. Desafio 5.5 - Persistindo dados do Foodfy
+- [x] 4. Desafio 5.4 - Paginação de resultados no BD
+- [x] 5. Desafio 5.5 - Persistindo dados do Foodfy
 
 ## Módulo 6 - E-commerce Launchstore: :construction_worker: :construction:
 - [ ] Desafio 6 - Mini desafios

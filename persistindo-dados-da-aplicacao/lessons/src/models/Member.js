@@ -118,11 +118,11 @@ module.exports = {
 
   instructorsSelectOptions(callback) {
     db.query(`
-      SELECT name, id FROM instructors`, (err, results) => {
-        if(err) throw `Select Instructor Error! ${err}` 
+    SELECT name, id FROM instructors`, (err, results) => {
+      if(err) throw `Select Instructor Error! ${err}` 
 
-        callback(results.rows)
-      })
+      callback(results.rows)
+    })
   },
 
   paginate(params) {

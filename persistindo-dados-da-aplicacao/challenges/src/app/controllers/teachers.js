@@ -18,13 +18,8 @@ module.exports = {
       callback(teachers) {
         if (teachers == "") return response.redirect("/teachers")
 
-        const newTeacher = teachers.map(teacher => {
-          const splitDiscipline = {
-            ...teacher,
-            disciplines: teacher.subjects_taught.split(",")
-          }
-  
-          return splitDiscipline
+        teachers.map( teacher => {
+          return teacher.disciplines = teacher.subjects_taught.split(",")
         })
         
         const pagination = {
@@ -32,7 +27,7 @@ module.exports = {
           page
         }
 
-        return response.render('teachers/index', { teachers: newTeacher, pagination, filter })
+        return response.render('teachers/index', { teachers, pagination, filter })
       } 
     }
 

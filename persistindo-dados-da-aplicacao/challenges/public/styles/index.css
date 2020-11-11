@@ -129,5 +129,5 @@ td:last-child {
 
 .pagination a:hover {
   filter: brightness(0.3);
-  border-bottom: 1px solid var(--primary-color)
+  border-bottom: 1px solid var(--primary-color);
 }
