@@ -38,7 +38,7 @@
 - [x] 7. Desafio 4.7 - Estruturando estudantes
 - [x] 8. Desafio 4.8 - Admin Foodfy :fork_and_knife:
 
-## Módulo 5 - Persistindo dados da aplicação: :lock: :heavy_check_mark: 
+## Módulo 5 - [Persistindo dados da aplicação:](https://github.com/i-ramoss/Bootcamp-LaunchBase/tree/master/persistindo-dados-da-aplicacao) :lock: :heavy_check_mark: 
 - [x] 1. Desafio 5.1 - Refatorando aplicação e configurando o BD
 - [x] 2. Desafio 5.2 - Interagindo com o BD
 - [x] 3. Desafio 5.3 - Relacionamentos e filtros no BD

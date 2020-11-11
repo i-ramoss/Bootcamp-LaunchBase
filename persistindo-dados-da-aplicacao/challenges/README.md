@@ -16,11 +16,11 @@
 
 <p align="center">
   <a href="#pushpin-sobre">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#">5-1</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#">5-2</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#">5-3</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#">5-4</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#">5-5</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#desafio-5-1-refatorando-aplicação-e-configurando-o-bd">5-1</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#desafio-5-2-interagindo-com-o-bd">5-2</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#desafio-5-3-relacionamentos-e-filtros-no-bd">5-3</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#desafio-5-4-paginação-de-resultados-no-bd">5-4</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#desafio-5-persistindo-dados-no-foodfy">5-5</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#key-licença">Licença</a>
 </p>
 
@@ -169,7 +169,7 @@ Para finalizar, basta:
 
 
 
-<h2 align="center">Desafio 5-4: Paginação de resultados no BD</h2>
+<h2 align="center">Desafio 5: Persistindo dados no Foodfy</h2>
 
 ## :rocket: Sobre o desafio
 
