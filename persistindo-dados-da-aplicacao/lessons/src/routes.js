@@ -4,7 +4,7 @@ const members = require('./app/controllers/members')
 
 const routes = express.Router()
 
-routes.get('/', (require, response ) => {
+routes.get('/', (request, response ) => {
   return response.redirect('/instructors')
 })
 
