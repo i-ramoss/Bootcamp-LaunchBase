@@ -68,6 +68,6 @@ module.exports = {
   async delete(request, response) {
     await Product.delete(request.body.id)
 
-    return response.redirect("/products/create")
+    return response.status(204).redirect("/products/create")
   }
 }
