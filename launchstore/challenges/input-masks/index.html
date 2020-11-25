@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Challenge Input Masks</title>
+  </head>
+
+  <body>
+      <div>
+        <h1>Percentage:</h1>
+
+        <input 
+          type="text" 
+          placeholder="Value in %" 
+          onkeydown="Mask.apply(this, 'formatPercentage')">
+      </div>
+
+      <div>
+        <h1>CPF:</h1>
+
+        <input 
+          type="text" 
+          placeholder="xxx.xxx.xxx-xx"
+          maxlength="11"
+          onkeydown="Mask.apply(this, 'formatCPF')">
+      </div> 
+
+      <div>
+        <h1>CNPJ:</h1>
+
+        <input 
+          type="text" 
+          placeholder="xx.xxx.xxx/xxxx-xx"
+          maxlength="14"
+          onkeydown="Mask.apply(this, 'formatCNPJ')">
+      </div>    
+  </body>
+
+  <script src="./masks.js"></script>
+  
+</html>
