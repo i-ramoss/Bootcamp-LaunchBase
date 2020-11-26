@@ -45,15 +45,21 @@
 - [x] 4. Desafio 5.4 - Paginação de resultados no BD
 - [x] 5. Desafio 5.5 - Persistindo dados do Foodfy
 
-## Módulo 6 - E-commerce Launchstore: :construction_worker: :construction:
-- [ ] Desafio 6 - Mini desafios
+## Módulo 6 - E-commerce Launchstore: :department_store: :heavy_check_mark:
+- [x] Desafio 6 - Mini desafios
 
 ## Módulo 7 - Upload de Imagens: :construction_worker: :construction:
-- [ ] Desafio 7 - Foodfy: envio de imagens 
+- [ ] Desafio 7 - Foodfy: Envio de imagens 
+
+## Módulo 8 - Listando os Produtos da Launchstore: :construction_worker: :construction:
+- [ ] Desafio 8 - Foodfy: Apresentação e Organização das Receitas Foodfy
+
+## Módulo 9 - Cadastrando Usuários: :construction_worker: :construction:
 
  
 
-## :key: Licença:
+ 
+# :key: Licença:
 
 Este projeto está sob licença MIT, para mais detalhes verifique em [LICENSE](https://github.com/i-ramoss/Bootcamp-LaunchBase/blob/master/LICENSE).
 
