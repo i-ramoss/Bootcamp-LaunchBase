@@ -5,15 +5,11 @@ const Product = require("../../models/Product")
 const File = require("../../models/File")
 
 module.exports = {
-  create(request, response) {
-    Category.all()
-    .then( results => {
-      const categories = results.rows
+  async create(request, response) {
+    let results = await Category.all()
+    const categories = results.rows
 
-      return response.render("products/create.njk", { categories })
-    }).catch( err => {
-      throw new Error(err)
-    })
+    return response.render("products/create.njk", { categories })
   },
 
   async post(request, response) {
