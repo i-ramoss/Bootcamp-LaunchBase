@@ -16,19 +16,19 @@ const Mask = {
 }
 
 const PhotosUpload = {
-  uploadLimit: 6,
-  
   preview: document.querySelector("#photos-preview"),
 
+  uploadLimit: 6,
+  
   input: "",
 
   files: [],
 
   handleFileInput(event) {
     const { files: fileList } = event.target
-    let { preview, hasLimit, getContainer, getAllFiles, input } = PhotosUpload
+    const { preview, hasLimit, getContainer, getAllFiles } = PhotosUpload
 
-    input = event.target
+    PhotosUpload.input = event.target
 
     if (hasLimit(event)) return
 
@@ -52,7 +52,7 @@ const PhotosUpload = {
       reader.readAsDataURL(file)
     })
     
-    input.files = getAllFiles()
+    PhotosUpload.input.files = getAllFiles()
   },
 
   hasLimit(event) {
@@ -65,7 +65,7 @@ const PhotosUpload = {
       return true
     }
 
-    const photosDiv = []
+    let photosDiv = []
 
     preview.childNodes.forEach( item => {
       if (item.classList && item.classList.value === "photo") photosDiv.push(item)
@@ -83,8 +83,8 @@ const PhotosUpload = {
   },
 
   getAllFiles() {
-    let { files } = PhotosUpload
-    const dataTransfer = new ClipboardEvent("").clipboardData || new DataTransfer()  
+    const { files } = PhotosUpload
+    const dataTransfer = new ClipboardEvent("").clipboardData || new DataTransfer()
 
     files.forEach( file => dataTransfer.items.add(file))
 
