@@ -1,4 +1,6 @@
 const express = require("express")
+const multer = require("./app/middlewares/multer")
+
 const ProductController = require("./app/controllers/ProductController")
 
 const routes = express.Router()
@@ -9,8 +11,8 @@ routes.get("/", (request, response ) => {
 
 routes.get("/products/create", ProductController.create)
 routes.get("/products/:id/edit", ProductController.edit)
-routes.post("/products", ProductController.post)
-routes.put("/products", ProductController.update)
+routes.post("/products", multer.array("photos", 6), ProductController.post)
+routes.put("/products", multer.array("photos", 6), ProductController.update)
 routes.delete("/products", ProductController.delete)
 
 // Alias
