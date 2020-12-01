@@ -14,3 +14,115 @@ const Mask = {
     }).format(value/100)
   }
 }
+
+const PhotosUpload = {
+  uploadLimit: 6,
+  
+  preview: document.querySelector("#photos-preview"),
+
+  input: "",
+
+  files: [],
+
+  handleFileInput(event) {
+    const { files: fileList } = event.target
+    let { preview, hasLimit, getContainer, getAllFiles, input } = PhotosUpload
+
+    input = event.target
+
+    if (hasLimit(event)) return
+
+    Array.from(fileList).forEach( file => {
+      const { files } = PhotosUpload
+
+      files.push(file)
+
+      const reader = new FileReader()
+
+      reader.onload = () => {
+        const image = new Image()
+
+        image.src = String(reader.result)
+
+        const div = getContainer(image)
+
+        preview.appendChild(div)
+      }
+
+      reader.readAsDataURL(file)
+    })
+    
+    input.files = getAllFiles()
+  },
+
+  hasLimit(event) {
+    const { uploadLimit, input, preview } = PhotosUpload
+    const { files: fileList } = input
+
+    if (fileList.length > uploadLimit) {
+      alert(`Upload a maximum of ${uploadLimit} photos`)
+      event.preventDefault()
+      return true
+    }
+
+    const photosDiv = []
+
+    preview.childNodes.forEach( item => {
+      if (item.classList && item.classList.value === "photo") photosDiv.push(item)
+    })
+
+    const totalPhotos =  fileList.length + photosDiv.length
+
+    if (totalPhotos > uploadLimit) {
+      alert("You have reached the maximum photo limit")
+      event.preventDefault()
+      return true
+    }
+
+    return false
+  },
+
+  getAllFiles() {
+    let { files } = PhotosUpload
+    const dataTransfer = new ClipboardEvent("").clipboardData || new DataTransfer()  
+
+    files.forEach( file => dataTransfer.items.add(file))
+
+    return dataTransfer.files
+  },
+  
+  getContainer(image) {
+    const { getRemoveButton, removePhoto } = PhotosUpload
+    const div = document.createElement("div")
+
+    div.classList.add("photo")
+    div.onclick = removePhoto
+    div.appendChild(image)
+
+    div.appendChild(getRemoveButton())
+
+    return div
+  },
+
+  getRemoveButton() {
+    const button = document.createElement("i")
+
+    button.classList.add("material-icons")
+    button.innerHTML = "close"
+
+    return button
+  },
+
+  removePhoto(event) {
+    let { preview, files, getAllFiles, input } = PhotosUpload
+    
+    const photoDiv = event.target.parentNode // <div class="photo">
+    const photosArray = Array.from(preview.children)
+    const index = photosArray.indexOf(photoDiv)
+
+    files.splice(index, 1)
+    input.files = getAllFiles()
+
+    photoDiv.remove()
+  }
+}
