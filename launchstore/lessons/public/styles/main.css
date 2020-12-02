@@ -358,12 +358,46 @@ form .item #photos-preview .photo:hover i {
   border-radius: 4px;
 }
 
+/* Product Single Gallery */
+
 .product-single .gallery {
   width: 100%;
 }
 
-.product-single .gallery img {
+.product-single .highlight > img {
   width: 100%;
+  height: 280px;
+
+  object-fit: none;
+  object-position: 50% 50%;
+
+  border: 1px solid #efefef;
+
+  cursor: zoom-in;
+}
+
+.product-single .gallery-preview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 4px;
+}
+
+.product-single .gallery-preview img {
+  width: 100%;
+  height: 100px;
+
+  object-fit: cover;
+
+  opacity: 0.6;
+
+  cursor: pointer;
+
+  transition: 200ms;
+}
+
+.product-single .gallery-preview img:hover,
+.product-single .gallery-preview img.active {
+  opacity: 1;
 }
 
 /* product single info */
