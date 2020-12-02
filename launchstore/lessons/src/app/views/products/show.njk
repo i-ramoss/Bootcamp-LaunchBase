@@ -1,0 +1,45 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+  <section class="product-single container">
+    <div class="gallery">
+      <img src="http://placehold.it/500x500?text=PRODUCT WITHOUT PHOTO" alt="">
+    </div>
+
+    <div class="info">
+      <h1>{{product.name}}</h1>
+
+      <div class="published">
+        Published on {{product.published.day}} at {{product.published.hour}}
+      </div>
+
+      <div class="description">
+        {{product.description}}
+      </div>
+
+      <div class="price-buy">
+        <div class="price">
+          {{product.price}}
+
+          {% if product.price !== product.old_price%}
+            <span class="old">{{product.oldPrice}}</span>
+          {% endif %}
+        </div>
+
+        <div class="buy">
+          {% if product.status === 0 %}
+            <p class="unavailable">Unavailable</p>
+
+          {% elseif product.quantity === 0 %}
+            <p class="unavailable">Old of stock</p>
+
+          {% else %}
+            <button class="button">Buy</button>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}
