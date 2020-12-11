@@ -39,7 +39,7 @@ module.exports = {
     let results = await Product.find(request.params.id)
     const product = results.rows[0]
 
-    if(!product) return response.status(404).json("Product not found!")
+    if(!product) return response.status(404).json({ err: "Product not found!" })
 
     const { month, day, hour, minutes } = date(product.updated_at)
 

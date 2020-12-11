@@ -45,7 +45,7 @@ CREATE TABLE "models" (
   "name" text NOT NULL,
   "ports" int NOT NULL,
   "exchange" text NOT NULL,
-  "release_year" int DEFAULT (now())
+  "release_year" timestamp DEFAULT (now())
 );
 
 CREATE TABLE "orders" (
