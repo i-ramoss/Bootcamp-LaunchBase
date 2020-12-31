@@ -1,0 +1,37 @@
+<header>
+  <div class="container">
+    <a href="/">
+      <div class="logo">
+        <h1>Launchstore</h1>
+        <h2>BUY AND SELL</h2>
+      </div>
+    </a>
+
+    <form class="search" method="get" action="/products/search">
+      <input 
+        type="text" 
+        name="filter" 
+        placeholder="Search for Products"
+        {% if search.term %} value="{{ search.term }}" {% endif %}
+      >
+    </form>
+
+    <nav class="primary">
+      <ul>
+        <li>
+          <a href="/ads/create">
+            <i class="material-icons">add</i>
+            New ad
+          </a>
+        </li>
+
+        <li>
+          <a href="/accounts">
+            <i class="material-icons">account_circle</i>
+            My Account
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div> 
+</header>
