@@ -1,0 +1,75 @@
+<div class="item">
+  <div>Full Name:</div>
+  <div class="input">
+    <input type="text" name="name" placeholder="Enter your full name" value="{{ user.name }}" required>
+  </div>
+</div>
+
+<div class="item">
+  <div>Email:</div>
+  <div class="input">
+    <input 
+      type="email" 
+      name="email" 
+      placeholder="Enter your email" 
+      value="{{ user.email }}"
+      onblur="Validate.apply(this, 'isEmail')"
+      required
+    >
+  </div>
+</div>
+
+<div class="item">
+  <div>Password:</div>
+  <div class="input">
+    <input type="password" name="password" placeholder="Choose a secure password" value="{{ user.password }}" required>
+  </div>
+</div>
+
+{% if not user.id %}
+
+  <div class="item">
+    <div>Repeat Password:</div>
+    <div class="input">
+      <input type="password" name="passwordRepeat" placeholder="Retype your password" required>
+    </div>
+  </div>
+
+{% endif %}
+
+<div class="item">
+  <div>CPF or CNPJ:</div>
+  <div class="input">
+    <input 
+      type="text" 
+      name="cpf_cnpj" 
+      placeholder="Enter your document" 
+      value="{{ user.cpf_cnpj }}"
+      onkeydown="Mask.apply(this, 'cpfCnpj')"  
+      onblur="Validate.apply(this, 'isCpfCnpj')"
+      required
+    >
+  </div>
+</div>
+
+<div class="item">
+  <div>ZIP Code:</div>
+  <div class="input">
+    <input 
+      type="text" 
+      name="zip_code" 
+      placeholder="xxxxx-xxx" 
+      value="{{ user.zip_code }}"
+      onkeydown="Mask.apply(this, 'zipCode')"
+      onblur="Validate.apply(this, 'isZipCode')"
+      required
+    >
+  </div>
+</div>
+
+<div class="item">
+  <div>Full Address:</div>
+  <div class="input">
+    <input type="text" name="address" placeholder="Enter your full address" value="{{ user.address }}" required>
+  </div>
+</div>

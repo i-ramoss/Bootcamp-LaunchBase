@@ -16,4 +16,8 @@ routes.get("/ads/create", (request, response ) => {
   return response.redirect("/products/create")
 })
 
+routes.get("/accounts", (request, response ) => {
+  return response.redirect("/users/register")
+})
+
 module.exports = routes
