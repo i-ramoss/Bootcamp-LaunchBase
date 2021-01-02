@@ -6,8 +6,12 @@ module.exports = {
   },
 
   async create(request, response) {
-    
+    const userId = await User.create(request.body)
 
-    return response.json({ Confirm: "Passed!" })
+    return response.redirect("/users")
+  },
+
+  async show(request, response) {
+    return response.json({ confirm: "Registered" })
   }
 }
