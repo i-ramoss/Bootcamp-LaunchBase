@@ -51,10 +51,10 @@
 ## Módulo 7 - [Upload de Imagens:](https://github.com/i-ramoss/Bootcamp-LaunchBase/tree/master/launchstore) :heavy_check_mark:
 - [x] Desafio 7 - Foodfy: Envio de imagens 
 
-## Módulo 8 - Listando os Produtos da Launchstore: :construction_worker: :construction:
-- [ ] Desafio 8 - Foodfy: Apresentação e Organização das Receitas Foodfy
+## Módulo 8 - [Listando os Produtos da Launchstore:](https://github.com/i-ramoss/Bootcamp-LaunchBase/tree/master/launchstore):heavy_check_mark:
+- [x] Desafio 8 - Foodfy: Apresentação e Organização das Receitas Foodfy
 
-## Módulo 9 - Cadastrando Usuários: :construction_worker: :construction:
+## Módulo 9 - [Cadastrando Usuários:](https://github.com/i-ramoss/Bootcamp-LaunchBase/tree/master/cadastrando-usuarios) :heavy_check_mark:
 
 ## Módulo 10 - Controle da Sessão de Usuário :construction_worker: :construction:
 - [ ] Desafios 9 e 10 - Foodfy: Sistema de Login Foodfy
