@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
-
 :root {
   --primary-color: #fd951f;
   --secondary-color: #1fd4fd;
+  --error-color: #e74c3c;
 }
 
 * {
@@ -625,7 +624,7 @@ form .item #photos-preview .photo:hover i {
 /* Validate Errors */
 
 .input .error {
-  background-color: #e74c3c;
+  background-color: var(--error-color);
   border-radius: 4px;
 
   margin-top: 3px;

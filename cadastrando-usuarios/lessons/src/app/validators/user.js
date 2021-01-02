@@ -6,7 +6,11 @@ async function create(request, response, next) {
 
   for (key of keys) {
     if (request.body[key] == "")
-      return response.json({ err: "Please, fill all fields!" })
+      return response.render("user/register", {
+        user: request.body,
+        error: "Please, fill all fields"
+      })
+    
   }
 
   cpf_cnpj = cpf_cnpj.replace(/\D/g, "")
@@ -15,9 +19,15 @@ async function create(request, response, next) {
     where: { email }, or: { cpf_cnpj } 
   })
 
-  if (user) return response.json({ err: "This user already exists" })
+  if (user) return response.render("user/register", {
+    user: request.body,
+    error: "User already registered!"
+  })
 
-  if (password != passwordRepeat) return response.json({ err: "Password Mismatch" })
+  if (password != passwordRepeat) return response.render("user/register", {
+    user: request.body,
+    error: "Password Mismatch!"
+  })
 
   next()
 }
