@@ -1,8 +1,8 @@
 const { formatPrice, date } = require("../lib/utils")
 
-const Category = require("../../models/Category")
-const Product = require("../../models/Product")
-const File = require("../../models/File")
+const Category = require("../models/Category")
+const Product = require("../models/Product")
+const File = require("../models/File")
 
 module.exports = {
   async create(request, response) {

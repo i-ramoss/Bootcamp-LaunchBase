@@ -1,6 +1,6 @@
 const { formatPrice } = require("../lib/utils")
 
-const Product = require("../../models/Product")
+const Product = require("../models/Product")
 
 module.exports = {
   async index(request, response) {
