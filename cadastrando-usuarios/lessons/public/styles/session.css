@@ -1,0 +1,33 @@
+.login.container {
+  max-width: 500px;
+}
+
+.login.container .fields {
+  margin-bottom: 32px;
+}
+
+.login.container .footer ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.login.container .footer ul li a {
+  color: #777;
+
+  transition: 500ms;
+}
+
+.login.container .footer ul li a:hover {
+  color: black;
+  font-weight: bold;
+} 
+
+.login.container input[name="email"],
+.login.container input[name="password"] {
+  max-width: 100%;
+}
+
+.login.container button {
+  margin: 20px auto;
+  width: 60%;
+}
