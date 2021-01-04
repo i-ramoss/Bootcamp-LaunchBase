@@ -1,8 +1,10 @@
-.login.container {
+.login.container,
+.password.container {
   max-width: 500px;
 }
 
-.login.container .fields {
+.login.container .fields,
+.password.container .fields {
   margin-bottom: 32px;
 }
 
@@ -21,11 +23,6 @@
   color: black;
   font-weight: bold;
 } 
-
-.login.container input[name="email"],
-.login.container input[name="password"] {
-  max-width: 100%;
-}
 
 .login.container button {
   margin: 20px auto;

@@ -613,14 +613,6 @@ form .item #photos-preview .photo:hover i {
   max-width: 500px;
 }
 
-.form input[name="email"],
-.form input[name="cep"],
-.form input[name="password"],
-.form input[name="passwordRepeat"],
-.form input[name="cpf_cnpj"] {
-  max-width: 60%;
-}
-
 /* Validate Errors */
 
 .input .error {

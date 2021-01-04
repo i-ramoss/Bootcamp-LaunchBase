@@ -24,6 +24,28 @@ async function login(request, response, next) {
   next()
 }
 
+async function forgot(request, response, next) {
+  const { email } = request.body
+
+  try {
+    let user = await User.findOne({ where: { email } })
+
+    if (!user) return response.render("session/forgot-password", {
+      user: request.body,
+      error: "Email not registered!"
+    })
+    
+    request.user = user
+
+    next()
+  } 
+  catch (err) {
+    console.error(err)
+  }
+
+}
+
 module.exports = {
-  login
+  login,
+  forgot
 }

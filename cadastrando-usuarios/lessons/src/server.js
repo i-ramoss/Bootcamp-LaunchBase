@@ -26,5 +26,5 @@ nunjucks.configure("src/app/views", {
 }) 
 
 server.listen(5000, () => {
-  console.log("Server is running")
-}) 
+  console.log("The server is running successfully on port 5000")
+})
