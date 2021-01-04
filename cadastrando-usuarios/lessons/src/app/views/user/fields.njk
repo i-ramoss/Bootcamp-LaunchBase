@@ -1,7 +1,7 @@
 <div class="item">
   <div>Full Name:</div>
   <div class="input">
-    <input type="text" name="name" placeholder="Enter your full name" value="{{ user.name }}" required>
+    <input type="text" name="name" placeholder="Enter your full name" value="{{ user.name }}">
   </div>
 </div>
 
@@ -14,7 +14,6 @@
       placeholder="Enter your email" 
       value="{{ user.email }}"
       onblur="Validate.apply(this, 'isEmail')"
-      required
     >
   </div>
 </div>
@@ -22,7 +21,15 @@
 <div class="item">
   <div>Password:</div>
   <div class="input">
-    <input type="password" name="password" placeholder="Choose a secure password" required>
+    <input 
+      type="password" 
+      name="password" 
+      {% if not user.id %}
+        placeholder="Choose a secure password" 
+      {% else %}
+        placeholder="Enter your password to update your registration"
+      {% endif %}
+      >
   </div>
 </div>
 
@@ -31,7 +38,7 @@
   <div class="item">
     <div>Repeat Password:</div>
     <div class="input">
-      <input type="password" name="passwordRepeat" placeholder="Retype your password" required>
+      <input type="password" name="passwordRepeat" placeholder="Retype your password">
     </div>
   </div>
 
@@ -47,7 +54,6 @@
       value="{{ user.cpf_cnpj }}"
       onkeydown="Mask.apply(this, 'cpfCnpj')"  
       onblur="Validate.apply(this, 'isCpfCnpj')"
-      required
     >
   </div>
 </div>
@@ -62,7 +68,6 @@
       value="{{ user.zip_code }}"
       onkeydown="Mask.apply(this, 'zipCode')"
       onblur="Validate.apply(this, 'isZipCode')"
-      required
     >
   </div>
 </div>
@@ -70,6 +75,6 @@
 <div class="item">
   <div>Full Address:</div>
   <div class="input">
-    <input type="text" name="address" placeholder="Enter your full address" value="{{ user.address }}" required>
+    <input type="text" name="address" placeholder="Enter your full address" value="{{ user.address }}">
   </div>
 </div>

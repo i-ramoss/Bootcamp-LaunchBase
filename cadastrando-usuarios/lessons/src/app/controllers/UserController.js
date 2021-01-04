@@ -1,3 +1,5 @@
+const { formatCpfCnpj, formatZipCode } = require("../lib/utils")
+
 const User = require("../models/User")
 
 module.exports = {
@@ -8,10 +10,46 @@ module.exports = {
   async create(request, response) {
     const userId = await User.create(request.body)
 
+    request.session.userId = userId
+
     return response.redirect("/users")
   },
 
   async show(request, response) {
-    return response.json({ confirm: "Registered" })
+    const { user } = request
+
+    user.cpf_cnpj = formatCpfCnpj(user.cpf_cnpj)
+    user.zip_code = formatZipCode(user.zip_code)
+
+    return response.render("user/index", { user })
+  },
+
+  async update(request, response) {
+    try {
+      let { name, email, cpf_cnpj, zip_code, address } = request.body
+      const { user } = request
+
+      cpf_cnpj = cpf_cnpj.replace(/\D/g, "")
+      zip_code = zip_code.replace(/\D/g, "")
+
+      await User.update(user.id, {
+        name,
+        email,
+        cpf_cnpj,
+        zip_code,
+        address
+      })
+
+      return response.render("user/index", {
+        user: request.body,
+        success: "Account updated successfully!"
+      })
+    } 
+    catch (err) {
+      console.error(err)
+      return response.render("user/index", {
+        error: "Something went wrong!"
+      })
+    }
   }
 }

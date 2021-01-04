@@ -1,4 +1,3 @@
-// conexão constante com o banco 
 const { Pool } = require("pg")
 
 module.exports = new Pool({
