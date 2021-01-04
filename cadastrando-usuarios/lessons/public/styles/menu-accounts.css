@@ -1,0 +1,60 @@
+.accounts {
+  position: relative;
+}
+
+.accounts .submenu {
+  display: block;
+
+  position: absolute;
+  top: 32px;
+  left: 0;
+
+  margin-top: 8px;
+
+  width: 150px;
+
+  background-color: white;
+  border-radius: 4px;
+  
+  box-shadow: 0px 2px 4px -2px rgba(0, 0, 0, .3);
+
+  transition: all 400ms;
+
+  opacity: 0;
+
+  visibility: hidden;
+}
+
+.accounts:hover .submenu {
+  top: -10px;
+
+  opacity: 1;
+
+  visibility: initial;
+}
+
+.accounts .submenu li:first-child a {
+  border: none;
+}
+
+.accounts .submenu li a,
+.accounts .submenu li button {
+  display: inline-block;
+  
+  color: #777;
+  font-size: 14px;
+
+  border-radius: 4px;
+  border-top: 1px solid #eee;
+  padding: 8px 16px;
+
+  width: 100%;
+
+  cursor: pointer;
+}
+
+.accounts .submenu li a:hover,
+.accounts .submenu li button:hover {
+  color: #111;
+  font-weight: bold;
+}

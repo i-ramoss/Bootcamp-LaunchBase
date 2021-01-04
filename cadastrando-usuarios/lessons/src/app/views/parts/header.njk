@@ -25,12 +25,25 @@
           </a>
         </li>
 
-        <li>
-          <a href="/accounts">
-            <i class="material-icons">account_circle</i>
-            My Account
-          </a>
-        </li>
+        {% if user %}
+          <li class="accounts">
+            <a href="/accounts">
+              <i class="material-icons">account_circle</i>
+              My Account
+            </a>
+
+            <ul class="submenu">
+              <li><a href="/users">Settings</a></li>
+              <li><a href="/buying">My Requests</a></li>
+              <li><a href="/selling">My Sales</a></li>
+              <li>
+                <form action="/users/logout" method="POST">
+                  <button>Exit</button>
+                </form>
+              </li>
+            </ul>
+          </li>
+        {% endif %}
       </ul>
     </nav>
   </div> 
