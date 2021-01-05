@@ -45,7 +45,50 @@ async function forgot(request, response, next) {
 
 }
 
+async function reset(request, response, next) {
+  try {
+    const { email, password, passwordRepeat, token } = request.body
+
+    let user = await User.findOne({ where: { email } })
+
+    if (!user) return response.render("session/password-reset", {
+      user: request.body,
+      token,
+      error: "Email not registered!"
+    })
+
+    if (password != passwordRepeat) return response.render("session/password-reset", {
+      user: request.body,
+      token,
+      error: "Password Mismatch!"
+    })
+
+    if (token != user.reset_token) return response.render("session/password-reset", {
+      user: request.body,
+      token,
+      error: "Token invalid! Please request a new password recovery"
+    })
+
+    let now = new Date()
+    now = now.setHours(now.getHours())
+
+    if (now > user.reset_token_expires) return response.render("session/password-reset", {
+      user: request.body,
+      token,
+      error: "Token expired! Please request a new password recovery"
+    })
+
+    request.user = user
+
+    next()
+  } 
+  catch (err) {
+    console.error(err)
+  }
+}
+
 module.exports = {
   login,
-  forgot
+  forgot,
+  reset
 }
