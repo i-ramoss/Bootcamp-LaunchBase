@@ -51,5 +51,24 @@ module.exports = {
         error: "Something went wrong!"
       })
     }
+  },
+
+  async delete(request, response) {
+    try {
+      await User.delete(request.body.id)
+      
+      request.session.destroy()
+
+      return response.render("session/login", {
+        success: "Account successfully deleted"
+      })
+    } 
+    catch (err) {
+      console.error(err)
+      return response.render("user/index", {
+        user: request.body,
+        error: "Error trying to delete your account"
+      })
+    }
   }
 }
