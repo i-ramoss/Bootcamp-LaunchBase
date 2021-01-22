@@ -1,6 +1,10 @@
-const { formatCpfCnpj, formatZipCode } = require("../lib/utils")
+const { unlinkSync } = require("fs")
+const { hash } = "bcryptjs"
 
 const User = require("../models/User")
+const Product = require("../models/Product")
+
+const { formatCpfCnpj, formatZipCode } = require("../lib/utils")
 
 module.exports = {
   registerForm(request, response) {
@@ -8,20 +12,43 @@ module.exports = {
   },
 
   async create(request, response) {
-    const userId = await User.create(request.body)
+    try {
+      let { name, email, password, cpf_cnpj, zip_code, address, id } = request.body
 
-    request.session.userId = userId
+      password = await hash(password, 8)
+      cpf_cnpj = cpf_cnpj.replace(/\D/g, "")
+      zip_code = zip_code.replace(/\D/g, "")
 
-    return response.redirect("/users")
+      const userId = await User.create(id, {
+        name,
+        email,
+        password,
+        cpf_cnpj,
+        zip_code,
+        address
+      })
+
+      request.session.userId = userId
+
+      return response.redirect("/users")
+    } 
+    catch (err) {
+      console.error(err)  
+    }
   },
 
   async show(request, response) {
-    const { user } = request
+    try {
+      const { user } = request
 
-    user.cpf_cnpj = formatCpfCnpj(user.cpf_cnpj)
-    user.zip_code = formatZipCode(user.zip_code)
+      user.cpf_cnpj = formatCpfCnpj(user.cpf_cnpj)
+      user.zip_code = formatZipCode(user.zip_code)
 
-    return response.render("user/index", { user })
+      return response.render("user/index", { user })
+    } 
+    catch (err) {
+      console.error(err)  
+    }
   },
 
   async update(request, response) {
@@ -55,9 +82,27 @@ module.exports = {
 
   async delete(request, response) {
     try {
-      await User.delete(request.body.id)
-      
+      const { id } = request.body
+
+      const products = await Product.findAll({ where: {user_id: id } })
+
+      const allFilesPromise = products.map( product => Product.files(product.id))
+      let promiseResults = await Promise.all(allFilesPromise)
+
+      await User.delete(id)
+
       request.session.destroy()
+
+      promiseResults.map( results => {
+        results.rows.map( file => {
+          try {
+            unlinkSync(file.path)
+          } 
+          catch (err) {
+            console.error(err)
+          }
+        }) 
+      })
 
       return response.render("session/login", {
         success: "Account successfully deleted"

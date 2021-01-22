@@ -4,14 +4,16 @@ function find(filters, table) {
   try {
     let query = `SELECT * FROM ${table}`
 
-    Object.keys(filters).map( key => {
-      query += `${key}`
-
-      Object.keys(filters[key]).map( field => {
-        query += `${field} = '${filters[key][field]}'`
+    if (filters) {
+      Object.keys(filters).map( key => {
+        query += `${key}`
+  
+        Object.keys(filters[key]).map( field => {
+          query += `${field} = '${filters[key][field]}'`
+        })
       })
-    })
-
+    }
+  
     return db.query(query)
   }
   catch (err) {
