@@ -5,7 +5,7 @@ const { formatPrice } = require("../lib/utils")
 module.exports = {
   async index(request, response) {
     try {
-      let results, params = {}
+      let params = {}
       const { filter, category } = request.query
 
       if (!filter) return response.redirect("/")

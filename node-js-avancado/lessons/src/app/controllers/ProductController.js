@@ -82,7 +82,7 @@ module.exports = {
       return response.render("products/show.njk", { product, files })
     } 
     catch (err) {
-      console.error(err0)  
+      console.error(err)  
     }
   },
 
