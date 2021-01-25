@@ -1,5 +1,5 @@
 const { unlinkSync } = require("fs")
-const { hash } = "bcryptjs"
+const { hash } = require("bcryptjs")
 
 const User = require("../models/User")
 const Product = require("../models/Product")
@@ -13,13 +13,13 @@ module.exports = {
 
   async create(request, response) {
     try {
-      let { name, email, password, cpf_cnpj, zip_code, address, id } = request.body
+      let { name, email, password, cpf_cnpj, zip_code, address } = request.body
 
       password = await hash(password, 8)
       cpf_cnpj = cpf_cnpj.replace(/\D/g, "")
       zip_code = zip_code.replace(/\D/g, "")
 
-      const userId = await User.create(id, {
+      const userId = await User.create({
         name,
         email,
         password,
@@ -93,8 +93,8 @@ module.exports = {
 
       request.session.destroy()
 
-      promiseResults.map( results => {
-        results.rows.map( file => {
+      promiseResults.map( files => {
+        files.map( file => {
           try {
             unlinkSync(file.path)
           } 

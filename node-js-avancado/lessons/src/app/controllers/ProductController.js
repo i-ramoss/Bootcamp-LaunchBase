@@ -1,3 +1,5 @@
+const { unlinkSync } = require("fs")
+
 const Category = require("../models/Category")
 const Product = require("../models/Product")
 const File = require("../models/File")
@@ -27,11 +29,11 @@ module.exports = {
           return response.json({ err: "Please, fill all fields!" })
       }
 
-      if(request.files.lenght === 0) return response.json("Please, send at least one image")
+      if(request.files.length === 0) return response.json("Please, send at least one image")
 
       price = price.replace(/\D/g, "")
 
-      const product_id = await Product.create(request.body.id, {
+      const product_id = await Product.create({
         category_id,
         user_id: request.session.userId,
         name,
@@ -39,11 +41,12 @@ module.exports = {
         old_price: old_price || price,
         price,
         quantity,
-        status: status || 1,
+        status: status || 1
       })
 
       const filesPromise = request.files.map( file => File.create({
-        ...file,
+        name: file.filename,
+        path: file.path,
         product_id
       }))
 
@@ -167,7 +170,20 @@ module.exports = {
   },
 
   async delete(request, response) {
-    await Product.delete(request.body.id)
+    const { id } = request.body
+
+    const files = await Product.files(id) 
+
+    await Product.delete(id)
+
+    files.map( file => {
+      try {
+        unlinkSync(file.path)
+      } 
+      catch (err) {
+        console.error(err)
+      }
+    }) 
 
     return response.status(204).redirect("/products/create")
   }
