@@ -22,15 +22,6 @@ module.exports = {
     try {
       let { category_id, name, description, old_price, price, quantity, status } = request.body
 
-      const keys = Object.keys(request.body)
-
-      for (key of keys) {
-        if (request.body[key] == "")
-          return response.json({ err: "Please, fill all fields!" })
-      }
-
-      if(request.files.length === 0) return response.json("Please, send at least one image")
-
       price = price.replace(/\D/g, "")
 
       const product_id = await Product.create({
@@ -90,12 +81,6 @@ module.exports = {
   async update(request, response) {
     try {
       let { category_id, name, description, old_price, price, quantity, status, id } = request.body
-      const keys = Object.keys(request.body)
-
-      for (key of keys) {
-        if (request.body[key] == "" && key != "removed_files")
-          return response.json({ err: "Please, fill all fields!" })
-      }
 
       if (request.files.length != 0) {
         const newFilesPromise = request.files.map( file => File.create({

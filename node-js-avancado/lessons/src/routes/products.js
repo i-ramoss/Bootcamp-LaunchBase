@@ -6,6 +6,8 @@ const SearchController = require("../app/controllers/SearchController")
 
 const { onlyUsers } = require("../app/middlewares/session")
 
+const Validator = require("../app/validators/product")
+
 const routes = express.Router()
 
 // Search
@@ -15,8 +17,8 @@ routes.get("/search", SearchController.index)
 routes.get("/create", onlyUsers, ProductController.create)
 routes.get("/:id", ProductController.show)
 routes.get("/:id/edit", onlyUsers, ProductController.edit)
-routes.post("/", multer.array("photos", 6), onlyUsers, ProductController.post)
-routes.put("/", multer.array("photos", 6), onlyUsers, ProductController.update)
+routes.post("/", multer.array("photos", 6), Validator.create,  onlyUsers, ProductController.post)
+routes.put("/", multer.array("photos", 6), Validator.update, onlyUsers, ProductController.update)
 routes.delete("/", onlyUsers, ProductController.delete)
 
 module.exports = routes
