@@ -28,4 +28,7 @@ routes.get("/", onlyUsers, UserValidator.show, UserController.show)
 routes.put("/", UserValidator.update, UserController.update)
 routes.delete("/", UserController.delete)
 
+// List user products
+routes.get("/ads", UserController.ads)
+
 module.exports = routes

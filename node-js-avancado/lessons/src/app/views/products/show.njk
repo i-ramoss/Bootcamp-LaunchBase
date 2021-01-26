@@ -1,8 +1,11 @@
 {% extends "layout.njk" %}
 
+{% import "parts/card.njk" as cards %}
+
 {% block content %}
 
-  <section class="product-single container">
+  {% call cards.render("", "product-single container" ) %}
+
     <div class="gallery">
 
       <div class="highlight">
@@ -72,6 +75,7 @@
         </div>
       </div>
     </div>
-  </section>
+    
+  {% endcall%}
 
 {% endblock content %}
