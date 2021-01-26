@@ -9,7 +9,7 @@ const { onlyUsers } = require("../app/middlewares/session")
 const routes = express.Router()
 
 // Search
-routes.get("/products/search", SearchController.index)
+routes.get("/search", SearchController.index)
 
 // Products
 routes.get("/create", onlyUsers, ProductController.create)

@@ -1,41 +1,22 @@
 const Product = require("../models/Product")
 
-const { formatPrice } = require("../lib/utils")
+const LoadProductService = require("../services/LoadProductService")
 
 module.exports = {
   async index(request, response) {
     try {
-      let params = {}
-      const { filter, category } = request.query
+      let { filter, category } = request.query
 
-      if (!filter) return response.redirect("/")
+      if (!filter || filter.toLowerCase() == "all the store") filter = null
 
-      params.filter = filter
+      let products = await Product.search({ filter, category })
 
-      if (category) params.category = category
+      const productsPromise = products.map(LoadProductService.format)
 
-      let products = await Product.search(params)
-
-      async function getImage(productId) {
-        let files = await Product.files(productId)
-  
-        files = files.map( file => `${request.protocol}://${request.headers.host}${file.path.replace("public", "")}`)
-  
-        return files[0]
-      }
-
-      const ProductsPromise = products.map( async product => {
-        product.img = await getImage(product.id)
-        product.oldPrice = formatPrice(product.old_price)
-        product.price = formatPrice(product.price)
-  
-        return product
-      })
-
-      products = await Promise.all(ProductsPromise)
+      products = await Promise.all(productsPromise)
 
       const search = {
-        term: request.query.filter,
+        term: filter || "All the Store",
         total: products.length
       }
 
