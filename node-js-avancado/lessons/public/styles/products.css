@@ -169,3 +169,13 @@
 .product-create {
   max-width: 700px;
 }
+
+.product-single .unavaiable {
+  font-weight: bold;
+  font-size: 14px;
+  color: #ccc;
+
+  background: #eee;
+
+  padding: 8px 16px;
+}

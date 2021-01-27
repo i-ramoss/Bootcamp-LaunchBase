@@ -2,6 +2,7 @@ const express = require("express")
 
 const SessionController = require("../app/controllers/SessionController")
 const UserController = require("../app/controllers/UserController")
+const OrderController = require("../app/controllers/OrderController")
 
 const UserValidator = require("../app/validators/user")
 const SessionValidator = require("../app/validators/session")
@@ -30,5 +31,8 @@ routes.delete("/", UserController.delete)
 
 // List user products
 routes.get("/ads", UserController.ads)
+
+// Buy a product
+routes.post("/orders", onlyUsers, OrderController.create)
 
 module.exports = routes

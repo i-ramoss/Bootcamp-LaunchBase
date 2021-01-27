@@ -1,0 +1,16 @@
+{% extends "layout.njk" %}
+
+{% import "parts/card.njk" as cards %}
+
+{% block content %}
+
+  {% call cards.render("", "order-error container" ) %}
+    <div class="error-lottie"></div>
+    <h2>Sorry</h2>
+    <p>We are unable to process your order.</p>
+    <a href="#" onclick="history.back()">Try again</a>
+  {% endcall %}
+
+  {% include "orders/error-lottie-animation.njk"%}
+
+{% endblock content %}

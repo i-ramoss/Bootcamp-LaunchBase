@@ -1,0 +1,16 @@
+{% extends "layout.njk" %}
+
+{% import "parts/card.njk" as cards %}
+
+{% block content %}
+
+  {% call cards.render("", "order-success container" ) %}
+    <div class="success-lottie"></div>
+    <h2>Order successfully placed</h2>
+    <p>Wait for the seller's response in your email</p>
+    <a href="/products/search">Buy more</a>
+  {% endcall %}
+
+  {% include "orders/success-lottie-animation.njk"%}
+
+{% endblock content %}
