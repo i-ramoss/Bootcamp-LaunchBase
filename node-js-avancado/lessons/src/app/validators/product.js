@@ -6,7 +6,7 @@ async function create(request, response, next) {
       return response.json({ err: "Please, fill all fields!" })
   }
 
-  if(!reques.files || request.files.length === 0) return response.json("Please, send at least one image")
+  if(!request.files || request.files.length === 0) return response.json("Please, send at least one image")
 
   next()
 }

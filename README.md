@@ -48,16 +48,22 @@
 ## Módulo 6 - [E-commerce Launchstore: :department_store:](https://github.com/i-ramoss/Bootcamp-LaunchBase/tree/master/launchstore) :heavy_check_mark:
 - [x] Desafio 6 - Mini desafios
 
-## Módulo 7 - [Upload de Imagens:](https://github.com/i-ramoss/Bootcamp-LaunchBase/tree/master/launchstore) :heavy_check_mark:
+## Módulo 7 - [Upload de Imagens:](https://github.com/i-ramoss/Bootcamp-LaunchBase/tree/master/launchstore) :camera: :heavy_check_mark:
 - [x] Desafio 7 - Foodfy: Envio de imagens 
 
-## Módulo 8 - [Listando os Produtos da Launchstore:](https://github.com/i-ramoss/Bootcamp-LaunchBase/tree/master/launchstore):heavy_check_mark:
+## Módulo 8 - [Listando os Produtos da Launchstore:](https://github.com/i-ramoss/Bootcamp-LaunchBase/tree/master/launchstore) :shopping_cart: :heavy_check_mark:
 - [x] Desafio 8 - Foodfy: Apresentação e Organização das Receitas Foodfy
 
-## Módulo 9 - [Cadastrando Usuários:](https://github.com/i-ramoss/Bootcamp-LaunchBase/tree/master/cadastrando-usuarios) :heavy_check_mark:
+## Módulo 9 - [Cadastrando Usuários:](https://github.com/i-ramoss/Bootcamp-LaunchBase/tree/master/cadastrando-usuarios) :computer: :heavy_check_mark:
 
-## Módulo 10 - Controle da Sessão de Usuário :construction_worker: :construction:
-- [ ] Desafios 9 e 10 - Foodfy: Sistema de Login Foodfy
+## Módulo 10 - [Controle da Sessão de Usuário:](https://github.com/i-ramoss/Bootcamp-LaunchBase/tree/master/cadastrando-usuarios) :computer: :heavy_check_mark:
+- [x] Desafios 9 e 10 - Foodfy: Sistema de Login Foodfy
+
+## Módulo 11 - [NodeJS Avançado:](https://github.com/i-ramoss/Bootcamp-LaunchBase/tree/master/node-js-avancado) :heavy_check_mark:
+- [x] Desafio 11 - Conceitos Avançados
+
+## Módulo 12 - Funcionalidades Extras para a Launchstore: :construction_worker: :construction:
+- [ ] Final
 
 
  
