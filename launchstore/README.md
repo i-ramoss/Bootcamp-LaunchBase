@@ -3,7 +3,7 @@
 </h1>
 
 <h3 align="center">
-  Desafios Módulo 6 - Launchstore
+  Desafios Módulos 6, 7 e 8 - Launchstore
 </h3>
 
 <p align="center">
@@ -24,8 +24,9 @@
 Neste módulo uma nova aplicação se iniciou, e dessa vez será um E-commerce, a Launchstore!<br>
 O banco de dados, novamente PostgreSQL, foi  modelado pela plataforma [dbdiagram.io](https://dbdiagram.io/home) usando DBML. O relacionamento entre as tabelas do banco foi feito usando Foreign Keys e Constraints do SQL.<br>
 Para as requisições foi introduzido o formato de Promises do Javascript, incluindo Async-Await para melhor organização e gerenciamento do código.<br>
-Além disso, se fez necessário a utilização e manejo de expressões regulares, além de máscaras de campo (script dinâmico) para formatar os dados, aliado novamente ao uso da API Intl para números sensíveis à linguagem.
-
+Além disso, se fez necessário a utilização e manejo de expressões regulares, além de máscaras de campo (script dinâmico) para formatar os dados, aliado novamente ao uso da API Intl para números sensíveis à linguagem. <br>
+Nos módulos posteriores foi desenvolvido a feature de upload de imagens para os produtos cadastrados. Para isso foi realizado uma lógica no frontend que permitisse a criação e leitura de arquivos de imagem. Já no backend foi utilizado a lib multer possibilitando o upload de arquivos no node, além da lógica de salvamento desses arquivos no postgresql. <br>
+A ordenação dos produtos foi realizada no backend, pelo banco de dados, utilizando Procedures e Triggers que observam a atualização de dados dos produtos.
 
 ## :rocket: Desafios:
 
