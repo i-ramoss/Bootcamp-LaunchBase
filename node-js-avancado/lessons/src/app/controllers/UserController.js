@@ -6,7 +6,7 @@ const Product = require("../models/Product")
 
 const LoadProductService = require("../services/LoadProductService")
 
-const { formatCpfCnpj, formatZipCode } = require("../lib/utils")
+const { formatCpfCnpj, formatZipCode } = require("../../lib/utils")
 
 module.exports = {
   registerForm(request, response) {

@@ -1,6 +1,6 @@
 const Product = require("../models/Product")
 
-const { date, formatPrice } = require("../lib/utils")
+const { date, formatPrice } = require("../../lib/utils")
 
 async function getImages(productId) {
   let files = await Product.files(productId)
