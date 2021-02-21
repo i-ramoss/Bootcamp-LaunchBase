@@ -1,4 +1,4 @@
-const mailer = require("../lib/mailer")
+const mailer = require("../../lib/mailer")
 
 const User = require("../models/User")
 
