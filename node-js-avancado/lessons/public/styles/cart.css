@@ -81,6 +81,8 @@
 .cart .remove,
 .cart .delete {
   cursor: pointer;
+
+  background: none;
 }
 
 .cart .delete {
@@ -130,4 +132,20 @@
 
 .cart .button.order:hover {
   background: rgb(0, 220, 64);
+}
+
+/* empty cart */
+
+.empty-cart {
+  text-align: center;
+}
+
+.empty-cart p {
+  font-size: 18px;
+}
+
+.empty-cart .button {
+  width: 240px;
+
+  margin: 16px auto;
 }

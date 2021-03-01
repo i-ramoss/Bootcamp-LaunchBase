@@ -73,9 +73,8 @@
               <p class="unavailable">Old of stock</p>
 
             {% else %}
-              <form action="/users/orders" method="post">
-                <input type="hidden" name="id" value="{{ product.id }}">
-                <button class="button">Buy</button>
+              <form action="/cart/{{product.id}}/add-one" method="post">
+                <button class="button">Add to cart</button>
               </form>
             {% endif %}
           </div>
