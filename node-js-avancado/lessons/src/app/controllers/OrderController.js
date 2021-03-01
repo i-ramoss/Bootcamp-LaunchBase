@@ -1,6 +1,8 @@
 const mailer = require("../../lib/mailer")
+const Cart = require("../../lib/cart")
 
 const User = require("../models/User")
+const Order = require("../models/Order")
 
 const LoadProductService = require("../services/LoadProductService")
 
@@ -24,24 +26,50 @@ const email = (seller, product, buyer) => `
 module.exports = {
   async create(request, response) {
     try {
-      const product = await LoadProductService.load("product", { where: { id: request.body.id }})
+      const buyer_id = request.session.userId
 
-      const seller = await User.findOne({ where: { id: product.user_id }})
+      const cart = Cart.init(request.session.cart)
 
-      const buyer = await User.findOne({ where: { id: request.session.userId }})
+      const createOrdersPromise = cart.items
+        .filter( item => item.product.user_id != buyer_id)
+        .map( async item => {
+          let { product, price: total, quantity } = item
+          const { price, id: product_id, user_id: seller_id } = product
+          const status = "open"
 
-      await mailer.sendMail({
-        to: seller.email,
-        from: "no-reply@launchstore.com.br",
-        subject: "New purchase order",
-        html: email(seller, product, buyer)
-      })
+          const order = await Order.create({
+            seller_id,
+            buyer_id,
+            product_id,
+            price,
+            total,
+            quantity,
+            status
+          })
+
+          product = await LoadProductService.load("product", { where: { id: product.id }})
+
+          const seller = await User.findOne({ where: { id: seller_id }})
+    
+          const buyer = await User.findOne({ where: { id: buyer_id }})
+    
+          await mailer.sendMail({
+            to: seller.email,
+            from: "no-reply@launchstore.com.br",
+            subject: "New purchase order",
+            html: email(seller, product, buyer)
+          })
+
+          return order
+        })
+
+      await Promise.all(createOrdersPromise)
 
       return response.render("orders/success")
     } 
     catch (err) {
       console.error(err)
-      return repsonse.render("orders/error")
+      return response.render("orders/error")
     }
   }
 }

@@ -23,7 +23,7 @@
         {% for item in cart.items %}
         
           <div class="item">
-            <a href="/product/{{ item.product.id }}">
+            <a href="/products/{{ item.product.id }}">
               <img src="{{ item.product.img }}" alt="Image of product: {{ item.product.name }}">
               <span class="title">{{ item.product.name }}</span>
             </a>
