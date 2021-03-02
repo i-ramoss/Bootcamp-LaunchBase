@@ -36,7 +36,7 @@ const LoadService = {
   async order(){
     try {
       const order = await Order.findOne(this.filter)
-      return format(product)
+      return format(order)
     } 
     catch (err) {
       console.error(err)  

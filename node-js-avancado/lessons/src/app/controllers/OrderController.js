@@ -87,5 +87,11 @@ module.exports = {
     const sales = await LoadOrderService.load("orders", { where: { seller_id: request.session.userId } })
 
     return response.render("orders/sales", { sales })
+  },
+
+  async show(request, response) { 
+    const order = await LoadOrderService.load("order", { where: { id: request.params.id }})
+
+    return response.render("orders/details", { order })
   }
 }
