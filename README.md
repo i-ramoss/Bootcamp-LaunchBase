@@ -62,7 +62,7 @@
 ## Módulo 11 - [NodeJS Avançado:](https://github.com/i-ramoss/Bootcamp-LaunchBase/tree/master/node-js-avancado) :heavy_check_mark:
 - [x] Desafio 11 - Conceitos Avançados
 
-## Módulo 12 - Funcionalidades Extras para a Launchstore: :heavy_check_mark:
+## Módulo 12 - [Funcionalidades Extras para a Launchstore:](https://github.com/i-ramoss/Bootcamp-LaunchBase/tree/master/node-js-avancado) :heavy_check_mark:
 - [x] Final - Launchbase completo!
 
 
