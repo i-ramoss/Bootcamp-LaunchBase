@@ -1,4 +1,5 @@
 const mailer = require("../../lib/mailer")
+const { formatPrice, date } = require("../../lib/utils")
 const Cart = require("../../lib/cart")
 
 const User = require("../models/User")
@@ -24,6 +25,36 @@ const email = (seller, product, buyer) => `
 `
 
 module.exports = {
+  async index(request, response) {
+    let orders = await Order.findAll({ where: { buyer_id: request.session.userId }})
+
+    const getOrdersPromise = orders.map( async order => {
+      order.product = await LoadProductService.load("products", { where: { id: order.product_id }})
+
+      order.buyer = await User.findOne({ where: { id: order.buyer_id }})
+      order.seller = await User.findOne({ where: { id: order.seller_id }})
+      order.formattedPrice = formatPrice(order.price)
+      order.formattedTotal = formatPrice(order.total)
+
+      const statuses = {
+        open: "Open",
+        sold: "Sold",
+        canceled: "Canceled"
+      }
+
+      order.formattedStatus = statuses[order.status]
+
+      const updatedAt = date(order.updated_at)
+      order.formattedUpdatedAt = `${order.formattedStatus} on ${updatedAt.day}/${updatedAt.month}/${updatedAt.year} at ${updatedAt.hour}h${updatedAt.minutes}`
+
+      return order
+    })
+
+    orders = await Promise.all(getOrdersPromise)
+
+    return response.render("home/index", { orders })
+  },
+
   async create(request, response) {
     try {
       const buyer_id = request.session.userId
@@ -64,6 +95,9 @@ module.exports = {
         })
 
       await Promise.all(createOrdersPromise)
+
+      delete request.session.cart
+      Cart.init()
 
       return response.render("orders/success")
     } 
