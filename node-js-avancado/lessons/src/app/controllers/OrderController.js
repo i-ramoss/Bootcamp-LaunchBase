@@ -29,7 +29,7 @@ module.exports = {
     let orders = await Order.findAll({ where: { buyer_id: request.session.userId }})
 
     const getOrdersPromise = orders.map( async order => {
-      order.product = await LoadProductService.load("products", { where: { id: order.product_id }})
+      order.product = await LoadProductService.load("product", { where: { id: order.product_id }})
 
       order.buyer = await User.findOne({ where: { id: order.buyer_id }})
       order.seller = await User.findOne({ where: { id: order.seller_id }})
@@ -52,7 +52,7 @@ module.exports = {
 
     orders = await Promise.all(getOrdersPromise)
 
-    return response.render("home/index", { orders })
+    return response.render("orders/index", { orders })
   },
 
   async create(request, response) {
