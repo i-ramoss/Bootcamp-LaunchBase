@@ -7,6 +7,7 @@ const { onlyUsers } = require("../app/middlewares/session")
 const routes = express.Router()
 
 .get("/", onlyUsers, OrderController.index)
+.get("/sales", onlyUsers, OrderController.sales)
 .post("/", onlyUsers, OrderController.create)
 
 module.exports = routes

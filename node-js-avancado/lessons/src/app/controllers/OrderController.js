@@ -1,11 +1,11 @@
 const mailer = require("../../lib/mailer")
-const { formatPrice, date } = require("../../lib/utils")
 const Cart = require("../../lib/cart")
 
 const User = require("../models/User")
 const Order = require("../models/Order")
 
 const LoadProductService = require("../services/LoadProductService")
+const LoadOrderService = require("../services/LoadOrderService")
 
 const email = (seller, product, buyer) => `
   <h2>Hi ${seller.name}</h2>
@@ -26,31 +26,7 @@ const email = (seller, product, buyer) => `
 
 module.exports = {
   async index(request, response) {
-    let orders = await Order.findAll({ where: { buyer_id: request.session.userId }})
-
-    const getOrdersPromise = orders.map( async order => {
-      order.product = await LoadProductService.load("product", { where: { id: order.product_id }})
-
-      order.buyer = await User.findOne({ where: { id: order.buyer_id }})
-      order.seller = await User.findOne({ where: { id: order.seller_id }})
-      order.formattedPrice = formatPrice(order.price)
-      order.formattedTotal = formatPrice(order.total)
-
-      const statuses = {
-        open: "Open",
-        sold: "Sold",
-        canceled: "Canceled"
-      }
-
-      order.formattedStatus = statuses[order.status]
-
-      const updatedAt = date(order.updated_at)
-      order.formattedUpdatedAt = `${order.formattedStatus} on ${updatedAt.day}/${updatedAt.month}/${updatedAt.year} at ${updatedAt.hour}h${updatedAt.minutes}`
-
-      return order
-    })
-
-    orders = await Promise.all(getOrdersPromise)
+    const orders = await LoadOrderService.load("orders", { where: { buyer_id: request.session.userId } })
 
     return response.render("orders/index", { orders })
   },
@@ -105,5 +81,11 @@ module.exports = {
       console.error(err)
       return response.render("orders/error")
     }
+  },
+
+  async sales(request, response) {
+    const sales = await LoadOrderService.load("orders", { where: { seller_id: request.session.userId } })
+
+    return response.render("orders/sales", { sales })
   }
 }
