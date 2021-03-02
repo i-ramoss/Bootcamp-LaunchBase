@@ -135,3 +135,18 @@ DELETE FROM files;
 ALTER SEQUENCE products_id_seq RESTART WITH 1;
 ALTER SEQUENCE users_id_seq RESTART WITH 1;
 ALTER SEQUENCE files_id_seq RESTART WITH 1;
+
+-- SOFT DELETE
+ALTER TABLE products ADD COLUMN "deleted_at" timestamp;
+
+CREATE OR REPLACE RULE delete_product AS
+ON DELETE TO products DO INSTEAD 
+UPDATE products
+SET deleted_at = now()
+WHERE products.id = old.id
+
+CREATE VIEW products_without_deleted AS
+SELECT * FROM products WHERE deleted_at IS NULL
+
+ALTER TABLE products RENAME TO products_with_deleted
+ALTER VIEW products_without_deleted RENAME TO products

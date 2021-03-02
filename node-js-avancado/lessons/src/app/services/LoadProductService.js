@@ -46,6 +46,7 @@ const LoadService = {
       console.error(err)  
     }
   },
+
   async products(){
     try {
       const products = await Product.findAll(this.filter)
@@ -53,6 +54,16 @@ const LoadService = {
       const productsPromise = products.map(format)
 
       return Promise.all(productsPromise)
+    } 
+    catch (err) {
+      console.error(err)  
+    }
+  },
+
+  async productWithDeleted() {
+    try {
+      const product = await Product.findOneWithDeleted(this.filter)
+      return format(product)
     } 
     catch (err) {
       console.error(err)  
