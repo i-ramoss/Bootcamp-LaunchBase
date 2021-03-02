@@ -34,7 +34,9 @@
           {% if session.userId %}
             <ul class="submenu">
               <li><a href="/users">My account</a></li>
-              <li><a href="/orders">My ads</a></li>
+              <li><a href="/users/ads">My ads</a></li>
+              <li><a href="/orders">My orders</a></li>
+              <li><a href="/orders/sales">My sales</a></li>
               <li>
                 <form action="/users/logout" method="POST">
                   <button>Exit</button>

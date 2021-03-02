@@ -31,6 +31,28 @@
             <div class="total">{{ sale.formattedTotal }}</div>
 
             <div class="status {{sale.status}} ">{{ sale.formattedStatus }}</div>
+
+            <div class="actions dropdown-container">
+              Actions <i class="material-icons">arrow_drop_down</i>
+              <ul class="dropdown">
+                <li><a href="/orders/{{ sale.id }}">See order</a></li>
+                <li><a href="/products/{{ sale.product.id }}/edit">Edit product</a></li>
+
+                {% if sale.status == "open" %}
+                  <li>
+                    <form action="/orders/{{ sale.id }}/close" method="post">
+                      <button>Mark as sold</button>
+                    </form>
+                  </li>
+                  
+                  <li>
+                    <form action="/orders/{{ sale.id }}/cancel" method="post">
+                      <button>Mark as canceled</button>
+                    </form>
+                  </li>
+                {% endif %}
+              </ul>
+            </div>
           </div>
         
         {% endfor %}
